@@ -58,5 +58,14 @@ namespace ProyectoMVCEF.Models
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<empleadosInfo_Result>("empleadosInfo", posicionParameter);
         }
+    
+        public virtual ObjectResult<paginacionSimpleDoctores_Result> paginacionSimpleDoctores(Nullable<int> posicion)
+        {
+            var posicionParameter = posicion.HasValue ?
+                new ObjectParameter("posicion", posicion) :
+                new ObjectParameter("posicion", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<paginacionSimpleDoctores_Result>("paginacionSimpleDoctores", posicionParameter);
+        }
     }
 }

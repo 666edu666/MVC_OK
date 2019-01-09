@@ -44,6 +44,9 @@
           <Parameter Name="posicion" Type="int" Mode="In" />
         </Function>
         <Function Name="mostrarEnfermos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="paginacionSimpleDoctores" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="posicion" Type="int" Mode="In" />
+        </Function>
         <EntityContainer Name="HOSPITALModelStoreContainer">
           <EntitySet Name="DEPT" EntityType="Self.DEPT" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="EMP" EntityType="Self.EMP" Schema="dbo" store:Type="Tables" />
@@ -62,6 +65,9 @@
           <EntitySet Name="ENFERMO" EntityType="HOSPITALModel.ENFERMO" />
           <FunctionImport Name="mostrarEnfermos" EntitySet="ENFERMO" ReturnType="Collection(HOSPITALModel.ENFERMO)" />
           <FunctionImport Name="empleadosInfo" ReturnType="Collection(HOSPITALModel.empleadosInfo_Result)">
+          <Parameter Name="posicion" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="paginacionSimpleDoctores" ReturnType="Collection(HOSPITALModel.paginacionSimpleDoctores_Result)">
             <Parameter Name="posicion" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
@@ -104,6 +110,13 @@
           <Property Type="Int32" Name="SALARIO" Nullable="true" />
           <Property Type="String" Name="DNOMBRE" Nullable="true" MaxLength="50" />
           <Property Type="String" Name="LOC" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="paginacionSimpleDoctores_Result">
+          <Property Type="Int64" Name="posicion" Nullable="true" />
+          <Property Type="String" Name="APELLIDO" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="SALARIO" Nullable="true" />
+          <Property Type="String" Name="ESPECIALIDAD" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="NombreHospital" Nullable="true" MaxLength="50" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -157,6 +170,17 @@
                 <ScalarProperty Name="SALARIO" ColumnName="SALARIO" />
                 <ScalarProperty Name="DNOMBRE" ColumnName="DNOMBRE" />
                 <ScalarProperty Name="LOC" ColumnName="LOC" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="paginacionSimpleDoctores" FunctionName="HOSPITALModel.Store.paginacionSimpleDoctores">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="HOSPITALModel.paginacionSimpleDoctores_Result">
+                <ScalarProperty Name="posicion" ColumnName="posicion" />
+                <ScalarProperty Name="APELLIDO" ColumnName="APELLIDO" />
+                <ScalarProperty Name="SALARIO" ColumnName="SALARIO" />
+                <ScalarProperty Name="ESPECIALIDAD" ColumnName="ESPECIALIDAD" />
+                <ScalarProperty Name="NombreHospital" ColumnName="NombreHospital" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

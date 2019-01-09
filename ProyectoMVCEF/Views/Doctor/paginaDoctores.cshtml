@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewBag.Title = "paginaDoctores";
+}
+
+<h2>pagina Doctores</h2>
+
+<h2>@ViewBag.Mensaje</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Apellido</th>
+        <th>Oficio</th>
+        <th>Salario</th>
+        <th>Departamento</th>
+        <th>Localidad</th>
+    </tr>
+
+    <tr>
+        <td>@Model.APELLIDO</td>
+        <td>@Model.OFICIO</td>
+        <td>@Model.SALARIO</td>
+        <td>@Model.DNOMBRE</td>
+        <td>@Model.LOC</td>
+    </tr>
+
+    <tr>
+        <td colspan="5">
+            @Html.ActionLink("Primero", "PaginarEmpleadosInfo", "Empleados",
+                new { posicion = 1},null) ,
+            @Html.ActionLink("Anterior", "PaginarEmpleadosInfo", "Empleados",
+               new { posicion = ViewBag.Anterior},null) ,
+            @Html.ActionLink("Siguiente", "PaginarEmpleadosInfo", "Empleados",
+               new { posicion = ViewBag.Siguiente},null) ,
+            @Html.ActionLink("Último", "PaginarEmpleadosInfo", "Empleados",
+               new { posicion = ViewBag.Ultimo},null)
+        </td>
+    </tr>
+</table>

@@ -156,6 +156,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\DoctorController.cs" />
     <Compile Include="Controllers\EmpleadosController.cs" />
     <Compile Include="Controllers\EnfermoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -189,8 +190,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>EntidadHospital.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\HelperDoctores.cs" />
     <Compile Include="Models\HelperEmpleados.cs" />
     <Compile Include="Models\HelperEnfermo.cs" />
+    <Compile Include="Models\paginacionSimpleDoctores_Result.cs">
+      <DependentUpon>EntidadHospital.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\ResumenEmpleados.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -256,6 +261,7 @@
     <Content Include="Views\Empleados\ListaEmpleados.cshtml" />
     <Content Include="Views\Enfermo\EliminarEnfermos.cshtml" />
     <Content Include="Views\Empleados\PaginarEmpleadosInfo.cshtml" />
+    <Content Include="Views\Doctor\paginaDoctores.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
