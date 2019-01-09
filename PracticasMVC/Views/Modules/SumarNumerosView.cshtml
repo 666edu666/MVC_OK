@@ -1,0 +1,26 @@
+﻿@model PracticasMVC.Models.Operaciones
+@{
+    ViewBag.Title = "SumarNumerosView";
+}
+
+<h2>SumarNumerosView</h2>
+<form method="post">
+    <label for="n1">Numero 1</label>
+    <input name="n1" type="text" />
+    <label for="n2">Numero 2</label>
+    <input name="n2" type="text" />
+    <button type="submit">SUMAR</button>
+</form>
+
+@ViewBag.Mensaje
+
+<br />
+@if (Model != null)
+{
+    <h1>El RESULTADO ES: @Model.sumado()</h1>
+}
+
+
+
+
+

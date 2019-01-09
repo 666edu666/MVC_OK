@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Menú de información</h2>
+
+<ul>
+    <li>
+        <a href="~/Informacion/ControladorVista"> ESTATICO: CONTROLADOR VISTA</a>
+    </li>
+    <li>
+        @*//@Html.ActionLink(TEXTO, ACTION = VISTA, CONTROLADOR)*@
+        @Html.ActionLink("Enlace RAZOR Controlador Vista", "ControladorVista", "Informacion")
+    </li>
+    <li>
+        @*Para enviar cosas al controlador se una un cuarto parámetro de ActionLink*@
+        @*Los valores enviados deben tener el mismo nombre ara que pueda realizar un BINDING*@
+        @*new{parametro1 = valor1, parametro2=valor2}*@
+        @Html.ActionLink("Ir a VistaControladorGet CON PARAMETROS", "VistaControladorGet", "Informacion", new { edad = 12, nombre = "panero" }, null)
+    </li>
+    <li>
+        @Html.ActionLink("Ir a VistaControladorGet SIN PARAMETROS", "VistaControladorGet", "Informacion")
+    </li>
+    <li>
+        @Html.ActionLink("Ir a VistaControladorPOST ", "VistaControladorPost", "Informacion")
+    </li>
+</ul>
+
+<h2>@ViewData</h2>
+
+@*Declaracion de variables desde RAZOR*@
+

@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewBag.Title = "EliminarDepartamento";
+}
+
+<h2>Eliminar Departamento</h2>
+
+<form method="post">
+    <label>Número departamento:</label>
+    <input type="number" name="deptno" placeholder="Número" />
+    <button type="submit">Eliminar</button>
+</form>
+
+<h1>@ViewBag.Mensaje</h1>
+@Html.ActionLink("Lista de departamentos", "Index", "DeptLinq")
+
+
+@section sweetAlert{<script></script>}

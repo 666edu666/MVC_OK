@@ -1,0 +1,39 @@
+﻿@model List<ProyectoMVCReal.Models.Doctor>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index DOCTOR</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Código Hospital</th>
+        <th>Código Doctor</th>
+        <th>Apellido</th>
+        <th>Especialidad</th>
+        <th>Salario</th>
+        <th>Link</th>
+        <th>Eliminar</th>
+    </tr>
+    @foreach (ProyectoMVCReal.Models.Doctor d in Model)
+    {
+        <tr>
+            <td>@d.GetCodigoHospital()</td>
+            <td>@d.GetCodigoDoctor()</td>
+            <td>@d.GetApellido()</td>
+            <td>@d.GetEspecialidad()</td>
+            <td>@d.GetSalario()</td>
+            <td>
+                @Html.ActionLink("Detalles","DetalleDoctor","Doctor",
+                    new { cod = d.GetCodigoDoctor() },null)
+            </td>
+            <td>
+                @Html.ActionLink("Eliminar","EliminarDoctor","Doctor",
+                    new { cod = d.GetCodigoDoctor() },null)
+            </td>
+        </tr>
+    }
+</table>
+
+@section sweetAlert{<script></script>}

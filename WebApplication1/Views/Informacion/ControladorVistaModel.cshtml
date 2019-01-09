@@ -1,0 +1,27 @@
+﻿@*Las declaraciones normalmente se ponen al inicio de la vista*@
+
+@*minuscula declarar*@
+@model WebApplication1.Models.Persona
+
+@{
+    /**/
+
+    ViewBag.Title = "ControladorVistaModel";
+}
+
+<h2>ControladorVistaModel</h2>
+
+
+
+@*Mayúscula utilizar*@
+@if (Model != null)
+{
+    <table class="table table-dark">
+        <thead><tr><td>NOMBRE</td><td>APELLIDO</td><td>EDAD</td></tr></thead>
+        <tbody><tr><td> @Model.Nombre</td><td>@Model.Apellidos</td><td> @Model.Edad</td></tr></tbody>
+    </table>
+}
+else
+{
+    <h3>NO HAY PERSONITA</h3>
+}

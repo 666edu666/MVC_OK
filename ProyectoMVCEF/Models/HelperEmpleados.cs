@@ -1,0 +1,135 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+
+
+namespace ProyectoMVCEF.Models
+{
+
+    
+    public class HelperEmpleados
+    {
+        
+        //Entity, context
+        EntidadHospital entidad;
+        public HelperEmpleados()
+        {
+            this.entidad = new EntidadHospital();
+        }
+        public List <String> GetOficios()
+        {
+            var consulta = (from datos in entidad.EMP select datos.OFICIO).Distinct();
+            return consulta.ToList();
+        }
+
+        public List<EMP> GetEmpleadosOficio (String oficio)
+        {
+            var consulta = (from datos in entidad.EMP where datos.OFICIO == oficio
+                            select datos);
+            return consulta.ToList();
+        }
+    
+        public ResumenEmpleados GetResumenEmpleados(String oficio)
+        {
+            //List<EMP> empleados = this.GetEmpleadosOficio(oficio);
+            List<EMP> empleados = this.GetEmpleadosDepartamento(int.Parse(oficio));
+
+
+
+            int personas = empleados.Count;
+            
+            //Con esto lo que hago es buscar de la propiedad SALARIO su MAX
+            //Puede ser nullable
+            int? maximo = empleados.Max(z => z.SALARIO);
+            System.Nullable<int> suma = empleados.Sum(t=>t.SALARIO);
+            double? media = empleados.Average(j=>j.SALARIO);
+
+            
+            ResumenEmpleados resumen = new ResumenEmpleados();
+            resumen.MaximoSalario = maximo.GetValueOrDefault();
+            resumen.Personas = personas;
+            resumen.SumaSalarial = suma.GetValueOrDefault();
+            resumen.MediaSalarial = media.GetValueOrDefault();
+
+            return resumen;
+        }
+
+       
+       //////////////////////////////////////////////////////////////////////////////////////        
+
+        public List<DEPT> GetDepartamentos()
+        {
+            var consulta = (from datos in entidad.DEPT select datos);
+            return consulta.ToList();
+        }
+
+
+        public List<EMP> GetEmpleadosDepartamento(int dept_no)
+        {
+            var consulta = (from datos in entidad.EMP
+                            where datos.DEPT_NO == dept_no
+                            select datos);
+            return consulta.ToList();
+        }
+
+        public List <EMP> GetEmpleados(int orden)
+        {
+            
+            if (orden==0)
+            {
+                var consulta = (from datos in entidad.EMP
+                                orderby datos.APELLIDO ascending
+                                select datos);
+                return consulta.ToList();
+            }
+            else if(orden==1)
+            {
+                var consulta = (from datos in entidad.EMP
+                                orderby datos.APELLIDO descending
+                                select datos);
+                return consulta.ToList();
+            }
+             else if (orden == 2)
+            {
+                var consulta = (from datos in entidad.EMP
+                                orderby datos.SALARIO descending
+                                select datos);
+                return consulta.ToList();
+            }
+            else if(orden==3)
+            {
+                var consulta = (from datos in entidad.EMP
+                                orderby datos.SALARIO ascending
+                                select datos);
+                return consulta.ToList();
+            }
+            return null;
+        }
+
+
+        //empleadosInfo_Result es un complexType porque viene de un procedimiento
+        //que devuelve todas las columnas de EMP y dos más de DEPT. Por ello
+        //por ello es un type diferente. Si devolviera las misma columnas por ejemplo
+        // de EMP podría mapearlo a esa clase que ya tenemos.
+        public empleadosInfo_Result GetEmpleadosInfo(int posicion)
+        {
+            #region procedimiento
+            //alter procedure empleadosInfo(@posicion int)
+            //as
+            //    select* from(select ROW_NUMBER() over(order by EMP.apellido) as posicion, EMP.APELLIDO, EMP.OFICIO, EMP.SALARIO, DEPT.DNOMBRE, DEPT.LOC
+
+            //   from EMP inner join DEPT ON EMP.DEPT_NO = DEPT.DEPT_NO) Pikachi where posicion = @posicion
+            //go
+            #endregion
+            var consulta = this.entidad.empleadosInfo(posicion);
+            empleadosInfo_Result empleado = consulta.FirstOrDefault();
+            return empleado;
+             
+        }
+        public int GetNumeroEmpleados()
+        {
+            return this.entidad.EMP.Count();
+        }
+    }
+}

@@ -1,0 +1,15 @@
+﻿@model ProyectoMVCReal.Models.Departamento
+
+@{
+    ViewBag.Title = "DetalleDepartamento";
+}
+
+<h2>DetalleDepartamento</h2>
+
+
+@if (Model != null)
+{
+    <h1>@Model.Numero</h1>
+    <h1>@Model.Nombre</h1>
+    <h1>@Model.Localidad</h1>
+}

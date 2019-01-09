@@ -1,0 +1,27 @@
+﻿@model List<ProyectoMVCReal.Models.Departamento>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Lista de departamentos</h2>
+
+
+<table class="table table-bordered">
+    <tr>
+        <th>Nombre</th>
+        <th>Dept_no</th>
+        <th>Localidad</th>
+        <th>Link</th>
+    </tr>
+    @foreach (ProyectoMVCReal.Models.Departamento d in Model)
+    {
+        <tr>
+            <td>@d.Nombre</td>
+            <td>@d.Numero</td>
+            <td>@d.Localidad</td>
+            <td>@Html.ActionLink("Detalles","DetalleDepartamento","Departamentos",
+               new { numero = d.Numero },null)</td>
+        </tr>
+    }
+</table>
+

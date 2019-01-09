@@ -1,0 +1,28 @@
+﻿@model List<string>
+
+@{
+    ViewBag.Title = "ModificarDepartamento";
+}
+
+<h2>ModificarDepartamento</h2>
+
+<form method="post">
+    <label>Nueva Localidad:</label>
+    <input type="text" name="newLoc" placeholder="Nueva Localidad" />
+
+    <label>Antigua Localidad:</label>
+    <select name="oldLoc">
+        @foreach (String c in Model)
+        {
+            <option value="@c">@c</option>
+        }
+    </select>
+
+    <button type="submit">Modificar</button>
+</form>
+
+<h1>@ViewBag.Mensaje</h1>
+
+@*@Html.Action("Lista Departamentos", "Index", "DeptLinq")*@
+
+@section sweetAlert{<script></script>}

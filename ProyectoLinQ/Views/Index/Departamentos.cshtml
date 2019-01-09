@@ -1,0 +1,52 @@
+﻿@model List<ProyectoLinQ.Models.EMP>
+
+@{
+    ViewBag.Title = "Departamentos";
+}
+
+<h2>Departamentos</h2>
+
+<form id="formDept" method="post" class="form-horizontal">
+    <div class="form-control">
+        <select name="select">
+            @foreach (ProyectoLinQ.Models.DEPT c in ViewBag.Depart)
+            {
+                <option value="@c.DEPT_NO">@c.DNOMBRE</option>
+            }
+        </select>
+    </div>
+    <div class="">
+        <button type="submit" class="btn">Mostrar</button>
+    </div>
+</form>
+
+@if (Model != null)
+{
+    <table class="table table-bordered">
+        <tr>
+            <th>Nombre</th>
+            <th>Oficio</th>
+            <th>Salario</th>
+            <th>Acción</th>
+        </tr>
+        @foreach (ProyectoLinQ.Models.EMP e in Model)
+        {
+            <tr>
+                <td>@e.APELLIDO</td>
+                <td>@e.OFICIO</td>
+                <td>@e.SALARIO</td>
+                <td><button type="button" id="delete">ELIMINAR</button></td>
+            </tr>
+        }
+    </table>
+}
+
+
+
+@*Sweet alert*@
+<script src="~/SweetAlert/sweetalert2.min.js"></script>
+<link rel="stylesheet" href="~/SweetAlert/sweetalert2.min.css">
+
+<script src="~/Scripts/SweetAlertCustom.js"></script>
+
+

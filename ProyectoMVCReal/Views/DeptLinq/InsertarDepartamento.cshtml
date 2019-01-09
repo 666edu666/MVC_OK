@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "InsertarDepartamento";
+}
+
+<h2>InsertarDepartamento</h2>
+
+<form method="post">
+    <label for="numero">Número</label>
+    <input type="text" name="numero" />
+
+    <label for="localidad">Localidad</label>
+    <input type="text" name="localidad" />
+
+    <label for="nombre">Nombre</label>
+    <input type="text" name="nombre" />
+
+    <button type="submit">INSERTAR</button>
+</form>
+
+<h1 class="progress-bar-animated">@ViewBag.Mensaje</h1>
+
+@section sweetAlert{<script></script>}

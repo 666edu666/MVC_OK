@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewBag.Title = "TablaMultiplicarHTML";
+}
+
+<h2>TablaMultiplicarHTMLView</h2>
+
+<form method="post">
+    <label for="num">NUMERO</label>
+    <input type="number" name="num" />
+    <button type="submit">MOSTRAR</button>
+</form>
+
+@ViewBag.html
+
+@Html.Raw(ViewBag.html)

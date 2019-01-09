@@ -1,0 +1,23 @@
+﻿@model ProyectoMVCReal.Models.DEPT
+@{
+    ViewBag.Title = "BuscarLocalidad";
+}
+
+<h2>BuscarLocalidad</h2>
+
+<form method="post">
+    <label for="loc">Introducir localidad</label>
+    <input type="text" name="loc" />
+    <button type="submit">BUSCAR</button>
+</form>
+
+@if (Model != null)
+{
+    <dl>
+        <dd>@Model.DEPT_NO</dd>
+        <dd>@Model.DNOMBRE</dd>
+        <dd>@Model.LOC</dd>
+    </dl>
+}
+@section sweetAlert{
+    <script></script>}

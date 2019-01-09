@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+@section scripts {
+
+    <script>   
+        $(document).ready(function () {
+            $("#boton").click(function () {
+                $("#mensaje").text("Botón pulsado");
+            });
+        });
+    </script>
+
+}
+<h2 id="mensaje">Vista INDEX</h2>
+
+<button type="button" id="boton" class="btn-danger"> Mostrar Mensaje</button>

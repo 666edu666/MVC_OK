@@ -1,0 +1,16 @@
+﻿@model ProyectoMVCReal.Models.Doctor
+
+@{
+    ViewBag.Title = "DetalleDepartamento";
+}
+
+<h2>Detalle Doctor</h2>
+
+
+@if (Model != null)
+{
+    <h1>@Model.GetApellido()</h1>
+    <h1>@Model.GetEspecialidad()</h1>
+
+    //Aqui pueod mostrar el hospital al que pertenece
+}

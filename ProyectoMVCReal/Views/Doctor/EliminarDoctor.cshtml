@@ -1,0 +1,64 @@
+﻿@model ProyectoMVCReal.Models.Doctor
+
+@{
+    ViewBag.Title = "EliminarDoctor";
+}
+
+<hi>@ViewBag.Mensaje</hi>
+
+@if (Model != null)
+{
+    @section sweetAlert{
+        <script>
+            $(document).on('click', '#alert', function (e) {
+                e.preventDefault();
+                swal({
+                    title: '<strong>¿Estás seguro de eliminar al doctor?</strong>',
+                    type: 'info',
+                    html:
+                        'Pulsa  <b>borrar</b> para confirmar',
+                    showCloseButton: true,
+                    showCancelButton: true,
+                    focusConfirm: false,
+                    confirmButtonText: '<i class= fas fa-igloo"></i> Borrar!',
+                    confirmButtonAriaLabel: 'Doctor BORRADO',
+                    cancelButtonText:
+                        '<i class="fas fa-undo-alt"></i>',
+                    cancelButtonAriaLabel: 'Doctor NO BORRADO',
+                }).then(function (result) {
+                    $('#myForm').submit();
+                });
+            });
+        </script>
+    }
+    <h2>EliminarDoctor @Model.GetApellido()</h2>
+
+
+
+
+    <form id="myForm" method="post" hidden>
+        <input type="text" value="@Model.GetCodigoDoctor()" />
+        <button type="submit" id="btn-submit"></button>
+    </form>
+
+    <button type="button" id="alert" class="btn">Borrar</button>
+
+}
+else
+{
+    if (ViewBag.Borrado == "Correcto")
+    {
+        <div class="card">
+            <div class="card-header">
+                Atención!
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Borrado Correcto </h5>
+                <p class="card-text">El doctor  ha sido borrado correctamente</p>
+                @Html.ActionLink("Volver", "Index", "Doctor",  null, new { @class = "btn btn-primary" })
+            </div>
+        </div>
+    }
+    @section sweetAlert{<script></script>}
+}
+

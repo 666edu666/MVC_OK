@@ -1,0 +1,47 @@
+﻿@model List<ProyectoLinQ.Models.EMP>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<form method="post" class="form-horizontal">
+    <div class="form-control">
+        @foreach (String c in ViewBag.Oficios)
+        {
+            <input type="radio" name="oficios" value="@c" />
+            <label>@c</label>
+        }
+    </div>
+    <div class="form-control">
+        <label for="incremento">Incremento salarial</label>
+        <input type="number" name="incremento" />
+    </div>
+    <div class="">
+        <button type="submit" class="btn">Modificar</button>
+    </div>
+</form>
+
+@if (Model != null)
+{
+    <table class="table table-bordered">
+        <tr>
+            <th>Apellido</th>
+            <th>Oficio</th>
+            <th>Salario</th>
+        </tr>
+        @foreach (ProyectoLinQ.Models.EMP e in Model)
+        {
+            <tr>
+                <td>@e.APELLIDO</td>
+                <td>@e.OFICIO</td>
+                <td>@e.SALARIO</td>
+            </tr>
+        }
+    </table>
+}
+
+<h1>@ViewBag.Numero</h1>
+
+<script src="~/Scripts/AjaxEMP.js"></script>

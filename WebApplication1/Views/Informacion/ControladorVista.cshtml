@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewBag.Title = "ControladorVista";
+}
+
+<h2>Controlador Vista</h2>
+<br />
+<p>Estamos en la vista CONTROLADOR_ VISTA</p>
+
+@if (ViewBag.Fecha is null)
+{
+
+    <label> No existe fecha desde el controlador</label>
+}
+else
+{
+    <label> @ViewBag.Fecha</label>
+}
+
+<hr />
+@if (ViewBag.Persona is null)
+{
+    <label> NO HAY PERSONA</label>
+}
+else
+{
+    <table class="table-bordered">
+        <thead><tr><td>NOMBRE</td><td>APELLIDO</td><td>EDAD</td></tr></thead>
+        <tbody><tr><td>@ViewBag.Persona.Nombre</td><td>@ViewBag.Persona.Apellidos</td><td>@ViewBag.Persona.Edad</td></tr></tbody>
+    </table>
+    
+}
+
+
+<br />

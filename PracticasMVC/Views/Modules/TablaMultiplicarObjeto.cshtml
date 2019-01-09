@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewBag.Title = "TablaMultiplicarObjeto";
+}
+
+<h2>TablaMultiplicarObjeto</h2>
+
+
+<form method="post">
+    <label for="num">NUMERO</label>
+    <input type="number" name="num" />
+    <button type="submit">MOSTRAR</button>
+</form>
+
+@ViewBag.Mensaje
+
+@if (Model != null)
+{
+    <table class="table-bordered table-hover">
+        <thead class=""><tr><td colspan="2">TABLA DEL @ViewBag.n</td></tr></thead>
+        <tbody>
+            
+            @foreach (String n in Model.ListaTablaString())
+            {
+            <tr>
+                <td class="warning">@n</td>
+                @if (n.Length < 3)
+                {
+                    @Html.Action("</tr>")
+                }
+            </tr>
+            }
+        </tbody>
+    </table>
+}

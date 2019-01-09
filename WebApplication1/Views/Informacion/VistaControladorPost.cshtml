@@ -1,0 +1,51 @@
+﻿@model WebApplication1.Models.Coche
+@{
+    ViewBag.Title = "VistaControladorPost";
+}
+
+<h2>VistaControladorPost</h2>
+<div class="row">
+    <div class="col-md-5"
+         </div>
+
+    <form class="form" method="post">
+        <div class="form-group">
+            <label for="Marca">Marca</label>
+            <input type="text" name="Marca" class="" />
+        </div>
+        <div class="form-group">
+            <label for="Modelo">Modelo</label>
+            <input type="text" name="Modelo" class="" />
+
+        </div>
+        <div class="form-group">
+            <label for="Velocidad">Velocidad</label>
+            <input type="text" name="Velocidad" class="" />
+        </div>
+        <div class="row">
+            <button type="submit" class="btn-primary">ENVIAR</button>
+        </div>
+    </form>
+</div>
+<br />
+<br />
+
+@if (Model != null)
+{
+    <h2>@ViewBag.Mensaje</h2>
+
+    <h2>
+        Marca: @Model.Marca
+    </h2>
+    <h2>
+        Modelo:@Model.Modelo
+    </h2>
+
+    <h2>
+        Modelo:@Model.Velocidad
+    </h2>
+}
+else
+{
+    <h2>SIN COCHE</h2>
+}

@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "VideosYoutubeModeloView";
+}
+
+<h2>VideosYoutubeModeloView</h2>
+@if (ViewBag.lista!=null)
+{
+<form method="post">
+    <select name="cod">
+        @foreach (PracticasMVC.Models.Video vid in ViewBag.lista)
+        {
+            <option value="@vid.CodigoYoutube()">@vid.TextoYoutube()</option>
+        }
+    </select>
+    <button type="submit">VER</button>
+</form>
+}
+
+<br />
+@ViewBag.res
+<br />
+@Html.Raw(ViewBag.res)

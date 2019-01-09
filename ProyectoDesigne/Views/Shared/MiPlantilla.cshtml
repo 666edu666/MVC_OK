@@ -1,0 +1,46 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+
+    <meta name="viewport" content="width=device-width" />
+    <title>MiPlantilla</title> 
+    
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    @*@Styles.Render("")*@
+</head>
+<body>
+        <div class="container">
+            <div class="jumbotron">
+                <header>
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Vista", "Vista", "Home")</li>
+                        <li>@Html.ActionLink("Index", "Index", "Home")</li>
+                    </ul>
+                </header>
+
+
+@*Con esto lo que hago es si existe una section llamada HALCON en alguna de las vistas la 
+muestra, pero en el caso de que no exista muestra siempre por defecto la imagen de abajo
+Esto es muy útil por ejemplo a la hora de menús de usuario (logueado muestro A, no logueado B)*@
+                @if (IsSectionDefined("halcon"))
+                {
+                    @RenderSection("halcon",false)
+                }
+                else
+                {
+                    <img src="~/Images/1.png" />
+                }
+                @RenderBody()
+            </div>
+        </div>
+        <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+        <script src="~/Scripts/bootstrap.min.js"></script>
+        @*@Scripts.Render ("")*@
+    @RenderSection("scripts")
+</body>
+</html>

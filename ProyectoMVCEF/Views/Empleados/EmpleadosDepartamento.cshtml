@@ -1,0 +1,42 @@
+﻿@using ProyectoMVCEF.Models
+@model List<EMP>
+@{
+    ViewBag.Title = "EmpleadosDepartamento";
+}
+
+@{
+    List<DEPT> departamentos = ViewBag.Departamentos;
+    ResumenEmpleados resumen = ViewBag.Resumen;
+}
+
+<form method="post">
+    <select name="dept" class="form-control">
+        @foreach (DEPT dept in departamentos)
+        {
+            <option value="@dept.DEPT_NO">@dept.DNOMBRE</option>
+        }
+    </select>
+    <button type="submit" class="btn-success">Mostrar Empleados</button>
+</form>
+<hr />
+
+@if (Model != null)
+{
+    <dl>
+        <dt>Personas @resumen.Personas</dt>
+        <dt>Suma salarial @resumen.SumaSalarial</dt>
+        <dt>Media salarial @resumen.MediaSalarial</dt>
+        <dt>Máximo salario @resumen.MaximoSalario</dt>
+    </dl>
+
+    <table class="table table-hover">
+        @foreach (EMP emp in Model)
+        {
+            <tr>
+                <td>@emp.APELLIDO</td>
+                <td>@emp.OFICIO</td>
+                <td>@emp.SALARIO</td>
+            </tr>
+        }
+    </table>
+}
