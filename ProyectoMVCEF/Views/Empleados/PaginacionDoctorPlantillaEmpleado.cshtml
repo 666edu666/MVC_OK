@@ -1,0 +1,34 @@
+﻿@using ProyectoMVCEF.Models
+@model List<paginarDoctorPlantillaEmpleado_Result>
+@{
+    ViewBag.Title = "PaginacionDoctorPlantillaEmpleado";
+}
+
+<h2>PaginacionDoctorPlantillaEmpleado</h2>
+
+<form method="post">
+    <label>Salario Mínimo</label>
+    <input type="number" name="salario" />
+    <button type="submit">Buscar</button>
+</form>
+
+<br />
+
+<table class="table table-bordered" >
+    <tr>
+        <th>Apellido</th>
+        <th>Cargo</th>
+        <th>Salario</th>
+    </tr>
+    @foreach (paginarDoctorPlantillaEmpleado_Result emp in Model)
+    {
+    <tr>
+        <td>@emp.apellido</td>
+        <td>@emp.FUNCION</td>
+        <td>@emp.SALARIO</td>
+    </tr>
+    }
+</table> 
+<h1>@Html.Raw(ViewBag.CadenaPaginacion) </h1>
+<br />
+<h1>TOTAL REGISTROS: @ViewBag.total</h1>

@@ -129,5 +129,135 @@ namespace ProyectoMVCEF.Controllers
 
             return View(this.helper.GetEmpleadosInfo(posicion.GetValueOrDefault()));
         }
+
+        public ActionResult ParametrosSalida()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult ParametrosSalida(int departamento)
+        {
+            ResumenEmpleados resumen = this.helper.GetResumenParametrosSalida(departamento);
+            return View(resumen);
+        }
+
+        public ActionResult paginarGrupo(int? posicion)
+        {
+            if (posicion ==null)
+            {
+                posicion = 1;
+            }
+
+            int numeroPagina = 1;
+            String html = "";
+            //Esta variable la envío al Helper por REFERENCIA. De esta manera al cambiar el valor 
+            //   en el helper puedo recoger el valor cuando la llame desde aquí
+            int totalRegistros = 0;
+
+            List<paginar_empleados_grupo_Result> emp = this.helper.GetEmpleadosGrupo(posicion.GetValueOrDefault(), ref totalRegistros);
+
+            for (int i=1; i<=totalRegistros; i+=3)
+            {
+                html += "<a href='PaginarGrupo?posicion=" + i + "'>" + numeroPagina + "</a>";
+                numeroPagina += 1;
+            }
+            ViewBag.CadenaPaginacion = html;
+            return View(emp);
+        }
+
+        public ActionResult PaginacionDoctorPlantillaEmpleado(int? posicion, int? salario)
+        {
+            int totalRegistros = 0;
+            if (posicion==null)
+            {
+                posicion = 1;
+            }
+            if (salario == null)
+            {
+                salario = 0;
+            }
+            List<paginarDoctorPlantillaEmpleado_Result> emp =
+                this.helper.PaginacionDoctorPlantillaEmpleado(posicion.GetValueOrDefault(), salario.GetValueOrDefault(), ref totalRegistros);
+
+            int numeroPagina = 1;
+            String html = "";
+            for (int i = 1; i <= totalRegistros; i += 3)
+            {
+                html += "<a href='PaginacionDoctorPlantillaEmpleado?posicion=" + i + "&salario=" + salario.GetValueOrDefault() + "'>" + numeroPagina + "</a> | ";
+                numeroPagina += 1;
+            }
+            ViewBag.CadenaPaginacion = html;
+            ViewBag.total = totalRegistros;
+            return View(emp);
+        }
+
+        [HttpPost]
+        public ActionResult PaginacionDoctorPlantillaEmpleado(int? posicion, int? salario, int? aux)
+        {
+            #region procedure 
+                //create procedure paginarDoctorPlantillaEmpleado(@salario int, @posicion int, @totalRegistros int out)
+                //as
+                //    select @totalRegistros = max(posicion) from
+                //      (
+                //          SELECT   ROW_NUMBER()over(order by apellido) as posicion, *FROM
+                //          (
+                //              select   PLANTILLA.APELLIDO as apellido, PLANTILLA.FUNCION, PLANTILLA.SALARIO from PLANTILLA where PLANTILLA.SALARIO > @salario
+
+                //                  union
+
+                //              select  DOCTOR.APELLIDO as apellido, DOCTOR.ESPECIALIDAD, DOCTOR.SALARIO from DOCTOR where DOCTOR.SALARIO > @salario
+
+                //                  union
+
+                //              select   EMP.APELLIDO as apellido, EMP.OFICIO, EMP.SALARIO from EMP where EMP.SALARIO > @salario
+
+                //          )consulta1
+                //      )consulta2
+
+
+                //        select* from
+                //        (
+                //            SELECT ROW_NUMBER () over (order by apellido) as posicion,*FROM
+                //           (
+                //                   select   PLANTILLA.APELLIDO as apellido, PLANTILLA.FUNCION, PLANTILLA.SALARIO from PLANTILLA where PLANTILLA.SALARIO > @salario
+
+                //                       union
+
+                //                   select  DOCTOR.APELLIDO as apellido, DOCTOR.ESPECIALIDAD, DOCTOR.SALARIO from DOCTOR where DOCTOR.SALARIO > @salario
+
+                //                       union
+
+                //                   select   EMP.APELLIDO as apellido, EMP.OFICIO, EMP.SALARIO from EMP where EMP.SALARIO > @salario
+
+                //           )consulta1
+		              //  )consulta2 where  posicion >= @posicion and posicion< (@posicion+3) 	
+                //go
+            #endregion
+            int numeroPagina = 1;
+            String html = "";
+            if (posicion==null)
+            {
+                posicion = 1;
+            }
+            if (salario==null)
+            {
+                salario = 0;
+            }
+            int totalRegistros = 0;
+            List<paginarDoctorPlantillaEmpleado_Result> emp =
+                this.helper.PaginacionDoctorPlantillaEmpleado(posicion.GetValueOrDefault(), salario.GetValueOrDefault(), ref totalRegistros);
+
+            for (int i = 1; i <= totalRegistros; i += 3)
+            {
+                html += "<a href='PaginacionDoctorPlantillaEmpleado?posicion=" + i + "&salario="+salario.GetValueOrDefault()+"'>" + numeroPagina + "</a> | ";
+                numeroPagina += 1;
+            }
+            ViewBag.CadenaPaginacion = html;
+            ViewBag.total = totalRegistros;
+            return View(emp);
+
+        }
+
     }
 }

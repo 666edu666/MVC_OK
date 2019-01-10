@@ -196,6 +196,12 @@
     <Compile Include="Models\paginacionSimpleDoctores_Result.cs">
       <DependentUpon>EntidadHospital.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\paginarDoctorPlantillaEmpleado_Result.cs">
+      <DependentUpon>EntidadHospital.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\paginar_empleados_grupo_Result.cs">
+      <DependentUpon>EntidadHospital.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\ResumenEmpleados.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -262,6 +268,9 @@
     <Content Include="Views\Enfermo\EliminarEnfermos.cshtml" />
     <Content Include="Views\Empleados\PaginarEmpleadosInfo.cshtml" />
     <Content Include="Views\Doctor\paginaDoctores.cshtml" />
+    <Content Include="Views\Empleados\ParametrosSalida.cshtml" />
+    <Content Include="Views\Empleados\paginarGrupo.cshtml" />
+    <Content Include="Views\Empleados\PaginacionDoctorPlantillaEmpleado.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

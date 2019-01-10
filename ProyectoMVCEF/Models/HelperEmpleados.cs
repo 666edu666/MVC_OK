@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Core.Objects;
 using System.Linq;
 using System.Web;
 
@@ -13,6 +14,8 @@ namespace ProyectoMVCEF.Models
         
         //Entity, context
         EntidadHospital entidad;
+       
+
         public HelperEmpleados()
         {
             this.entidad = new EntidadHospital();
@@ -130,6 +133,69 @@ namespace ProyectoMVCEF.Models
         public int GetNumeroEmpleados()
         {
             return this.entidad.EMP.Count();
+        }
+
+        public ResumenEmpleados GetResumenParametrosSalida(int departamento)
+        {
+            //Parámetros de salida PROCEDIMIENTOS
+
+            //Se llaman con ObjectParameter
+            //Indicamos el nombre del parámetro y su tipo
+            ObjectParameter pamPersonas = new ObjectParameter("PERSONAS", typeof(int));
+            ObjectParameter pamMedia = new ObjectParameter("MEDIA", typeof(int));
+            ObjectParameter pamSuma = new ObjectParameter("SUMA", typeof(int));
+
+            this.entidad.datosdepartamentos(departamento, pamPersonas, pamSuma, pamMedia);
+
+            //Comprobar los valores que me ha devuelto
+            if (pamSuma.Value == System.DBNull.Value)
+            {
+                return null;
+            }
+
+            ResumenEmpleados resumen = new ResumenEmpleados();
+            resumen.Personas = (int)pamPersonas.Value;
+            resumen.MediaSalarial = (int)pamMedia.Value;
+            resumen.SumaSalarial = (int)pamSuma.Value;
+
+            return resumen;
+        }
+
+        public List<paginar_empleados_grupo_Result> GetEmpleadosGrupo(int posicion, ref int totalRegistros)
+        {
+            #region procedure 
+                //create procedure paginar_empleados_grupo(@posicion int, @totalRegistros int out)
+                //as
+                //    select @totalRegistros = COUNT(EMP_NO) from EMP
+
+                //    select * from 
+
+                //        (select ROW_NUMBER() over(order by APELLIDO) as posicion, APELLIDO, SALARIO, OFICIO FROM EMP) EMPLEADOS
+                //           where POSICION >= @posicion and posicion< (@posicion+3)
+                //go
+            #endregion
+
+            ObjectParameter pamTotal = new ObjectParameter("totalRegistros", typeof (int));
+            
+            var datos = this.entidad.paginar_empleados_grupo(posicion, pamTotal);
+
+            
+            List<paginar_empleados_grupo_Result> empleados = datos.ToList();
+            totalRegistros = (int)pamTotal.Value;
+
+
+            return empleados;
+        }
+
+        public List <paginarDoctorPlantillaEmpleado_Result> PaginacionDoctorPlantillaEmpleado(int posicion,int salario, ref int totalRegistros)
+        {
+            ObjectParameter pamTotal = new ObjectParameter("totalRegistros", typeof(int));
+            var datos = this.entidad.paginarDoctorPlantillaEmpleado(salario, posicion, pamTotal).ToList();
+            List<paginarDoctorPlantillaEmpleado_Result> emp = datos.ToList();
+                
+            totalRegistros = (int)pamTotal.Value;
+            
+            return emp;
         }
     }
 }

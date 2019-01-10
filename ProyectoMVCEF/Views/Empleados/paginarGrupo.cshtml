@@ -1,0 +1,26 @@
+﻿@using ProyectoMVCEF.Models
+@model List<paginar_empleados_grupo_Result>
+@{
+    ViewBag.Title = "paginarGrupo";
+}
+
+<h2>paginarGrupo</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Apellido</th>
+        <th>Salario</th>
+        <th>Oficio</th>
+    </tr>
+
+    @foreach (paginar_empleados_grupo_Result emp in Model)
+    {
+    <tr>
+        <td>@emp.APELLIDO</td>
+        <td>@emp.SALARIO</td>
+        <td>@emp.OFICIO</td>
+    </tr>
+    }
+    
+</table>
+<h1>@Html.Raw(ViewBag.CadenaPaginacion) </h1>

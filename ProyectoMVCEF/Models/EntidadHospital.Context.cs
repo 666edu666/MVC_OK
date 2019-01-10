@@ -67,5 +67,36 @@ namespace ProyectoMVCEF.Models
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<paginacionSimpleDoctores_Result>("paginacionSimpleDoctores", posicionParameter);
         }
+    
+        public virtual int datosdepartamentos(Nullable<int> deptno, ObjectParameter personas, ObjectParameter suma, ObjectParameter media)
+        {
+            var deptnoParameter = deptno.HasValue ?
+                new ObjectParameter("deptno", deptno) :
+                new ObjectParameter("deptno", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("datosdepartamentos", deptnoParameter, personas, suma, media);
+        }
+    
+        public virtual ObjectResult<paginar_empleados_grupo_Result> paginar_empleados_grupo(Nullable<int> posicion, ObjectParameter totalRegistros)
+        {
+            var posicionParameter = posicion.HasValue ?
+                new ObjectParameter("posicion", posicion) :
+                new ObjectParameter("posicion", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<paginar_empleados_grupo_Result>("paginar_empleados_grupo", posicionParameter, totalRegistros);
+        }
+    
+        public virtual ObjectResult<paginarDoctorPlantillaEmpleado_Result> paginarDoctorPlantillaEmpleado(Nullable<int> salario, Nullable<int> posicion, ObjectParameter totalRegistros)
+        {
+            var salarioParameter = salario.HasValue ?
+                new ObjectParameter("salario", salario) :
+                new ObjectParameter("salario", typeof(int));
+    
+            var posicionParameter = posicion.HasValue ?
+                new ObjectParameter("posicion", posicion) :
+                new ObjectParameter("posicion", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<paginarDoctorPlantillaEmpleado_Result>("paginarDoctorPlantillaEmpleado", salarioParameter, posicionParameter, totalRegistros);
+        }
     }
 }

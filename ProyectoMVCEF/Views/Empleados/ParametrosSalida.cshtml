@@ -1,0 +1,20 @@
+﻿@using ProyectoMVCEF.Models
+
+@model ResumenEmpleados
+@{
+    ViewBag.Title = "ParametrosSalida";
+}
+
+<h2>ParametrosSalida</h2>
+
+<form method="post">
+    <label>Número departamento</label>
+    <input type="text" name="departamento" class="form-control" />
+    <button type="submit">Mostrar Resumen</button>
+</form>
+@if (Model != null)
+{
+    <h2> TOTAL PERSONAS => @Model.Personas</h2>
+    <h2> MEDIA SALARIAL => @Model.MediaSalarial</h2>
+    <h2>SUMA SALARIAL => @Model.SumaSalarial</h2>
+}
