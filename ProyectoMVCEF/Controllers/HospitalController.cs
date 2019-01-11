@@ -23,7 +23,7 @@ namespace ProyectoMVCEF.Controllers
 
         public ActionResult HospitalesPlantilla(int? [] hospital, int? orden)
         {
-
+            //Cuadno vengo del enlace del orden necesito Traer la lista de hospitales
             ViewBag.Hospitales=this.helper.GetHospitales();
             return View();
         }
