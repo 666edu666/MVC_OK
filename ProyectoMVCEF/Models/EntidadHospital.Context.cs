@@ -30,6 +30,9 @@ namespace ProyectoMVCEF.Models
         public virtual DbSet<EMP> EMP { get; set; }
         public virtual DbSet<DEPT> DEPT { get; set; }
         public virtual DbSet<ENFERMO> ENFERMO { get; set; }
+        public virtual DbSet<todosEmpleados> todosEmpleados { get; set; }
+        public virtual DbSet<HOSPITAL> HOSPITAL { get; set; }
+        public virtual DbSet<PLANTILLA> PLANTILLA { get; set; }
     
         public virtual int eliminarEnfermo(Nullable<int> inscripcion)
         {

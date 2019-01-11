@@ -1,0 +1,45 @@
+﻿@using ProyectoMVCEF.Models
+@model List<EMP>
+@{
+                /**/
+
+                ViewBag.Title = "SeleccionMutiple";
+}
+
+@{
+    List<DEPT> departamentos = ViewBag.Departamentos;
+}
+
+<h2>SeleccionMutiple</h2>
+<form method="post">
+    <div>
+        <label>Departamentos</label>
+        <select name="departamento" class="form-control" multiple size="4">
+            @foreach (DEPT dept in departamentos)
+            {
+                <option value="@dept.DEPT_NO">@dept.DNOMBRE</option>
+            }
+        </select>
+        <button type="submit">Mostrar empleados</button>
+    </div>
+</form>
+@if (Model != null)
+{
+    <table>
+        <tr>
+            <th>Apellido</th>
+            <th>OFICIO</th>
+            <th>Departamento</th>
+        </tr>
+        @foreach (EMP emp in Model)
+        {
+            <tr>
+                <td>@emp.APELLIDO</td>
+                <td>@emp.OFICIO</td>
+                <td>@emp.DEPT_NO</td>
+            </tr>
+        }
+    </table>
+}
+
+

@@ -1,0 +1,46 @@
+﻿@using ProyectoMVCEF.Models
+@model List<PLANTILLA>
+@{
+    ViewBag.Title = "HospitalesPlantilla";
+}
+
+<h2>HospitalesPlantilla</h2>
+
+<form method="post">
+    <label>Hospitales</label>
+    <select name="hospital" multiple size="5" required>
+        @foreach (HOSPITAL hosp in ViewBag.Hospitales)
+        {
+            <option value="@hosp.HOSPITAL_COD"> @hosp.NOMBRE</option>
+        }
+    </select>
+    <input type="text" name="orden" value="0" hidden />
+    <button type="submit">Mostrar plantila</button>
+</form>
+
+@if (Model!=null)
+{
+    <table class="table table-bordered">
+        <tr>
+            @if (ViewBag.Orden == 0)
+            {
+                <th>@Html.ActionLink("Apellido", "HospitalesPlantilla", "Hospital", new { orden = 1 }, null)</th>
+            }
+            else{ 
+            
+                <th>@Html.ActionLink("Apellido", "HospitalesPlantilla", "Hospital", new { orden = 0 }, null)</th>            
+            }
+
+            <th>Salario</th>
+            <th>Código de Hospital</th>
+        </tr>
+        @foreach (PLANTILLA pl in Model)
+        {
+            <tr>
+                <td>@pl.APELLIDO</td>
+                <td>@pl.SALARIO</td>
+                <td>@pl.HOSPITAL_COD</td>
+            </tr>
+        }
+    </table>
+}

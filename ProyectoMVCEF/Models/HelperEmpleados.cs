@@ -197,5 +197,31 @@ namespace ProyectoMVCEF.Models
             
             return emp;
         }
+
+        public List<todosEmpleados> paginacionViewEntidad(int cantidad, int indice, ref int totalRegistros)
+        {
+            var consulta = from datos in entidad.todosEmpleados  orderby datos.ID_EMPLEADO select datos;
+            List <todosEmpleados> listaEntera = consulta.ToList();
+            totalRegistros = listaEntera.Count;
+
+            List<todosEmpleados> paginada = (consulta.Skip(indice).Take(cantidad)).ToList();
+
+            return paginada;
+        }    
+
+        public List<EMP> GetEmpleadosDepartamentoMultiple(int [] departamentos)
+        {
+            //Para buscar multiple (conjunto) se usa .Contains
+
+            var consulta = from datos in entidad.EMP
+                           where departamentos.Contains(datos.DEPT_NO.Value)
+                           select datos;
+
+            return consulta.ToList();
+        }
     }
+
+
+
+
 }

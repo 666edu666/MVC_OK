@@ -1,0 +1,54 @@
+﻿@using ProyectoMVCEF.Models
+@model  List<todosEmpleados>
+@{
+    ViewBag.Title = "PaginacionViewEntidad";
+}
+@{ 
+    int registros = ViewBag.Total;
+    int numeroPagina = 1;
+}
+
+<h2>PaginacionViewEntidad</h2>
+
+<h3>Mostrando @ViewBag.Cantidad resultados</h3>
+<table>
+    <tr>
+        <th>ID EMPLEADO</th>
+        <th>Apellido</th>
+        <th>Cargo</th>
+        <th>Salario</th>
+    </tr>
+    @foreach (todosEmpleados emp in Model)
+    {
+        <tr>
+            <td>@emp.ID_EMPLEADO</td>
+            <td>@emp.apellido</td>
+            <td>@emp.cargo</td>
+            <td>@emp.salario</td>
+        </tr>
+    }
+
+    <tr>
+        <td colspan="3">
+            @for (int i = 0; i < registros; i += ViewBag.Cantidad)
+            {
+                <span
+                      >@Html.ActionLink(numeroPagina + " | ", "PaginacionViewEntidad",
+                       "Empleados", new { indice=i, cantidad=ViewBag.Cantidad},null)
+                </span>    
+                numeroPagina++;
+            }
+            <form method="get">
+                <label>Resultados</label>
+                <select name="cantidad">
+                    <option>1</option>
+                    <option>3</option>
+                    <option>6</option>
+                </select>
+                <input  type="text" value="@ViewBag.PaginaActual" name="indice" hidden/>
+                <button type="submit">Actualizar</button>
+            </form>
+        </td>
+    </tr>
+   
+</table>

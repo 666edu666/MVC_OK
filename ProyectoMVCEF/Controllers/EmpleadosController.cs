@@ -259,5 +259,44 @@ namespace ProyectoMVCEF.Controllers
 
         }
 
+        public ActionResult PaginacionViewEntidad(int? cantidad, int?indice)
+        {
+            if (cantidad==null)
+            {
+                cantidad = 3;
+            }
+            if (indice==null)
+            {
+                indice = 1;
+            }
+            int totalRegistros = 0;
+            List<todosEmpleados> miLista = 
+                this.helper.paginacionViewEntidad(cantidad.GetValueOrDefault(),
+                                                    indice.GetValueOrDefault(),
+                                                    ref totalRegistros);
+            ViewBag.Total = totalRegistros;
+            ViewBag.PaginaActual = indice;
+            ViewBag.Cantidad = cantidad;
+            return View(miLista);
+        }
+
+        public ActionResult SeleccionMutiple()
+        {
+            List<DEPT> departamentos = this.helper.GetDepartamentos();
+
+            ViewBag.Departamentos = departamentos;
+            return View();
+        }
+
+        [HttpPost]
+        //int[]departamento es porque viene de un select múltiple
+        public ActionResult SeleccionMutiple(int[] departamento)
+        {
+            List<DEPT> departamentos = this.helper.GetDepartamentos();
+
+            ViewBag.Departamentos = departamentos;
+            List<EMP> empleados = this.helper.GetEmpleadosDepartamentoMultiple(departamento);
+            return View(empleados);
+        }
     }
 }

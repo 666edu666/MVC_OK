@@ -160,6 +160,7 @@
     <Compile Include="Controllers\EmpleadosController.cs" />
     <Compile Include="Controllers\EnfermoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\HospitalController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -193,6 +194,10 @@
     <Compile Include="Models\HelperDoctores.cs" />
     <Compile Include="Models\HelperEmpleados.cs" />
     <Compile Include="Models\HelperEnfermo.cs" />
+    <Compile Include="Models\HelperHospital.cs" />
+    <Compile Include="Models\HOSPITAL.cs">
+      <DependentUpon>EntidadHospital.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\paginacionSimpleDoctores_Result.cs">
       <DependentUpon>EntidadHospital.tt</DependentUpon>
     </Compile>
@@ -202,7 +207,13 @@
     <Compile Include="Models\paginar_empleados_grupo_Result.cs">
       <DependentUpon>EntidadHospital.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\PLANTILLA.cs">
+      <DependentUpon>EntidadHospital.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\ResumenEmpleados.cs" />
+    <Compile Include="Models\todosEmpleados.cs">
+      <DependentUpon>EntidadHospital.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -271,6 +282,9 @@
     <Content Include="Views\Empleados\ParametrosSalida.cshtml" />
     <Content Include="Views\Empleados\paginarGrupo.cshtml" />
     <Content Include="Views\Empleados\PaginacionDoctorPlantillaEmpleado.cshtml" />
+    <Content Include="Views\Empleados\PaginacionViewEntidad.cshtml" />
+    <Content Include="Views\Empleados\SeleccionMutiple.cshtml" />
+    <Content Include="Views\Hospital\HospitalesPlantilla.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

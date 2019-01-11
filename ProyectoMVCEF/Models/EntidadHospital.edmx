@@ -37,6 +37,39 @@
           <Property Name="S" Type="nvarchar" MaxLength="50" />
           <Property Name="NSS" Type="nvarchar" MaxLength="50" />
         </EntityType>
+        <EntityType Name="HOSPITAL">
+          <Key>
+            <PropertyRef Name="HOSPITAL_COD" />
+          </Key>
+          <Property Name="HOSPITAL_COD" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="NOMBRE" Type="nvarchar" MaxLength="50" />
+          <Property Name="DIRECCION" Type="nvarchar" MaxLength="50" />
+          <Property Name="TELEFONO" Type="nvarchar" MaxLength="50" />
+          <Property Name="NUM_CAMA" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="PLANTILLA">
+          <Key>
+            <PropertyRef Name="EMPLEADO_NO" />
+          </Key>
+          <Property Name="HOSPITAL_COD" Type="int" />
+          <Property Name="SALA_COD" Type="int" />
+          <Property Name="EMPLEADO_NO" Type="int" Nullable="false" />
+          <Property Name="APELLIDO" Type="nvarchar" MaxLength="50" />
+          <Property Name="FUNCION" Type="nvarchar" MaxLength="50" />
+          <Property Name="T" Type="nvarchar" MaxLength="50" />
+          <Property Name="SALARIO" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'HOSPITAL.dbo.todosEmpleados' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="todosEmpleados">
+          <Key>
+            <PropertyRef Name="ID_EMPLEADO" />
+          </Key>
+          <Property Name="ID_EMPLEADO" Type="int" Nullable="false" />
+          <Property Name="apellido" Type="nvarchar" MaxLength="50" />
+          <Property Name="cargo" Type="nvarchar" MaxLength="50" />
+          <Property Name="salario" Type="int" />
+        </EntityType>
         <Function Name="datosdepartamentos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="deptno" Type="int" Mode="In" />
           <Parameter Name="personas" Type="int" Mode="InOut" />
@@ -66,6 +99,16 @@
           <EntitySet Name="DEPT" EntityType="Self.DEPT" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="EMP" EntityType="Self.EMP" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ENFERMO" EntityType="Self.ENFERMO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HOSPITAL" EntityType="Self.HOSPITAL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PLANTILLA" EntityType="Self.PLANTILLA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="todosEmpleados" EntityType="Self.todosEmpleados" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [todosEmpleados].[ID_EMPLEADO] AS [ID_EMPLEADO], 
+    [todosEmpleados].[apellido] AS [apellido], 
+    [todosEmpleados].[cargo] AS [cargo], 
+    [todosEmpleados].[salario] AS [salario]
+    FROM [dbo].[todosEmpleados] AS [todosEmpleados]</DefiningQuery>
+          </EntitySet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -100,6 +143,9 @@
             <Parameter Name="posicion" Mode="In" Type="Int32" />
             <Parameter Name="totalRegistros" Mode="InOut" Type="Int32" />
           </FunctionImport>
+          <EntitySet Name="todosEmpleados" EntityType="HOSPITALModel.todosEmpleados" />
+          <EntitySet Name="HOSPITAL" EntityType="HOSPITALModel.HOSPITAL" />
+          <EntitySet Name="PLANTILLA" EntityType="HOSPITALModel.PLANTILLA" />
         </EntityContainer>
         <EntityType Name="EMP">
           <Key>
@@ -160,6 +206,37 @@
           <Property Type="String" Name="FUNCION" Nullable="true" MaxLength="50" />
           <Property Type="Int32" Name="SALARIO" Nullable="true" />
         </ComplexType>
+        <EntityType Name="todosEmpleados">
+          <Key>
+            <PropertyRef Name="ID_EMPLEADO" />
+          </Key>
+          <Property Name="ID_EMPLEADO" Type="Int32" Nullable="false" />
+          <Property Name="apellido" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="cargo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="salario" Type="Int32" />
+        </EntityType>
+        <EntityType Name="HOSPITAL">
+          <Key>
+            <PropertyRef Name="HOSPITAL_COD" />
+          </Key>
+          <Property Name="HOSPITAL_COD" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NOMBRE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DIRECCION" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TELEFONO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NUM_CAMA" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="PLANTILLA">
+          <Key>
+            <PropertyRef Name="EMPLEADO_NO" />
+          </Key>
+          <Property Name="HOSPITAL_COD" Type="Int32" />
+          <Property Name="SALA_COD" Type="Int32" />
+          <Property Name="EMPLEADO_NO" Type="Int32" Nullable="false" />
+          <Property Name="APELLIDO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FUNCION" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="T" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SALARIO" Type="Int32" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -247,6 +324,40 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <EntitySetMapping Name="todosEmpleados">
+            <EntityTypeMapping TypeName="HOSPITALModel.todosEmpleados">
+              <MappingFragment StoreEntitySet="todosEmpleados">
+                <ScalarProperty Name="salario" ColumnName="salario" />
+                <ScalarProperty Name="cargo" ColumnName="cargo" />
+                <ScalarProperty Name="apellido" ColumnName="apellido" />
+                <ScalarProperty Name="ID_EMPLEADO" ColumnName="ID_EMPLEADO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HOSPITAL">
+            <EntityTypeMapping TypeName="HOSPITALModel.HOSPITAL">
+              <MappingFragment StoreEntitySet="HOSPITAL">
+                <ScalarProperty Name="NUM_CAMA" ColumnName="NUM_CAMA" />
+                <ScalarProperty Name="TELEFONO" ColumnName="TELEFONO" />
+                <ScalarProperty Name="DIRECCION" ColumnName="DIRECCION" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+                <ScalarProperty Name="HOSPITAL_COD" ColumnName="HOSPITAL_COD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PLANTILLA">
+            <EntityTypeMapping TypeName="HOSPITALModel.PLANTILLA">
+              <MappingFragment StoreEntitySet="PLANTILLA">
+                <ScalarProperty Name="SALARIO" ColumnName="SALARIO" />
+                <ScalarProperty Name="T" ColumnName="T" />
+                <ScalarProperty Name="FUNCION" ColumnName="FUNCION" />
+                <ScalarProperty Name="APELLIDO" ColumnName="APELLIDO" />
+                <ScalarProperty Name="EMPLEADO_NO" ColumnName="EMPLEADO_NO" />
+                <ScalarProperty Name="SALA_COD" ColumnName="SALA_COD" />
+                <ScalarProperty Name="HOSPITAL_COD" ColumnName="HOSPITAL_COD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
