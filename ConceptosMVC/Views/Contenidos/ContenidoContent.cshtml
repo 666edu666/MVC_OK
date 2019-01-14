@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewBag.Title = "ContenidoContent";
+}
+
+<h2>ContenidoContent</h2>
+
+@Html.ActionLink("Volver a ContenidoContent","Index","ContenidoContent")
+
+@using (Html.BeginForm())
+{
+    <label>Video de Youtube</label>
+    <input  type="text" name="video" class="form-control"/>
+    <button type="submit"  class="btn"> Mostrar Video</button>
+}

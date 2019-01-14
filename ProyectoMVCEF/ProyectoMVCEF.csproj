@@ -161,6 +161,7 @@
     <Compile Include="Controllers\EnfermoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HospitalController.cs" />
+    <Compile Include="Controllers\ValidacionesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -207,6 +208,7 @@
     <Compile Include="Models\paginar_empleados_grupo_Result.cs">
       <DependentUpon>EntidadHospital.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Persona.cs" />
     <Compile Include="Models\PLANTILLA.cs">
       <DependentUpon>EntidadHospital.tt</DependentUpon>
     </Compile>
@@ -258,6 +260,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\Validacion.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -285,6 +288,8 @@
     <Content Include="Views\Empleados\PaginacionViewEntidad.cshtml" />
     <Content Include="Views\Empleados\SeleccionMutiple.cshtml" />
     <Content Include="Views\Hospital\HospitalesPlantilla.cshtml" />
+    <Content Include="Views\Validaciones\Correcto.cshtml" />
+    <Content Include="Views\Validaciones\InsertarPersona.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

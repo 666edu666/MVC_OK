@@ -1,0 +1,31 @@
+﻿@using ConceptosMVC.Models
+@model DEPT
+@{
+    ViewBag.Title = "UpdateDepartamento";
+}
+
+<h2>Update Departamento</h2>
+
+<label class="panel-info">@ViewBag.Mensaje</label>
+@using (Html.BeginForm())
+{
+
+    @Html.ValidationSummary()
+    <div class="row">
+        @Html.LabelFor(z => z.DEPT_NO, new { @readonly = "readonly"}))
+        @Html.EditorFor(z => z.DEPT_NO)
+        @Html.ValidationMessageFor(z => z.DEPT_NO)
+    </div>
+    <div class="row">
+        @Html.LabelFor(z => z.DNOMBRE)
+        @Html.EditorFor(z => z.DNOMBRE)
+        @Html.ValidationMessageFor(z => z.DNOMBRE)
+    </div>
+    <div class="row">
+        @Html.LabelFor(z => z.LOC)
+        @Html.EditorFor(z => z.LOC)
+        @Html.ValidationMessageFor(z => z.LOC)
+    </div>
+    <button type="submit"> Modificar</button>
+}
+

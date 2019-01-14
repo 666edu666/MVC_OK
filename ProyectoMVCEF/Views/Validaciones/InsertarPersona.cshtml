@@ -1,0 +1,51 @@
+﻿@using ProyectoMVCEF.Models
+
+@model Persona
+@{
+    ViewBag.Title = "InsertarPersona";
+}
+
+<h2>Insertar Persona ComponentModel</h2>
+
+<h3>@ViewBag.Dato</h3>
+
+@using (Html.BeginForm())
+{
+
+    @Html.ValidationSummary()
+    <div>
+        @Html.LabelFor(z => z.Nombre)
+        @Html.EditorFor(z => z.Nombre)
+        @Html.ValidationMessageFor(z => z.Nombre)
+    </div>
+    <div>
+        @Html.LabelFor(z => z.Apellido)
+        @Html.EditorFor(z => z.Apellido)
+        @Html.ValidationMessageFor(z => z.Apellido)
+    </div>
+    <div>
+        @Html.LabelFor(z => z.Email)
+        @Html.EditorFor(z => z.Email)
+        @Html.ValidationMessageFor(z => z.Email)
+    </div>
+    <div>
+        @Html.LabelFor(z => z.FechaNacimiento)
+        @Html.EditorFor(z => z.FechaNacimiento)
+        @Html.ValidationMessageFor(z => z.FechaNacimiento)
+    </div>
+    <div>
+        @Html.LabelFor(z => z.Password)
+        @Html.EditorFor(z => z.Password)
+        @Html.ValidationMessageFor(z => z.Password)
+    </div>
+    <div>
+        @Html.LabelFor(z => z.RepetirPassword)
+        @Html.EditorFor(z => z.RepetirPassword)
+        @Html.ValidationMessageFor(z => z.RepetirPassword)
+    </div>
+    <div>
+        <button type="submit" id="botonenviar" class="btn">Validar Personita</button>
+    </div>
+
+
+}

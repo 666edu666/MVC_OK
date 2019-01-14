@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewBag.Title = "ContenidoJavascript";
+}
+
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            $("#botonimagen").click(function () {
+                //Es absurdo pero llamamos a un js del servidor
+                $.getScript("/Contenidos/CodigoJavascript");
+            })
+        })
+    </script>    
+}
+<h2>Contenido Javascript desde CONTROLLER</h2>
+
+<button type="button"  id="botonimagen"> Cambiar Imagen</button>
+
+
+<img id="imagen" style="width:300px; height:300px " src="~/Images/1.png" />
