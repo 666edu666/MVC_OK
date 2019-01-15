@@ -5,8 +5,6 @@ VisualStudioVersion = 15.0.27703.2026
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrimerMvc", "PrimerMvc\PrimerMvc.csproj", "{AA631FAA-8E94-44D4-9C50-8CE0DB82F230}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EjemploMvc", "WebApplication1\EjemploMvc.csproj", "{195CCE93-94D4-45DE-BD95-8085E6CB0D06}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PracticasMVC", "PracticasMVC\PracticasMVC.csproj", "{28026CAA-D5A1-4A44-91B3-6258BBEF4707}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProyectoDesigne", "ProyectoDesigne\ProyectoDesigne.csproj", "{3C2B7F61-AC6C-4872-9A94-E8585D9E911A}"
@@ -23,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProyectoMVCEF", "ProyectoMV
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConceptosMVC", "ConceptosMVC\ConceptosMVC.csproj", "{9DFA38A0-5EA0-4488-95E7-71AFDEC9BD3B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inyeccion", "Inyeccion\Inyeccion.csproj", "{C3A0EC04-D5F2-48E9-8C35-5709C9419493}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,10 +33,6 @@ Global
 		{AA631FAA-8E94-44D4-9C50-8CE0DB82F230}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AA631FAA-8E94-44D4-9C50-8CE0DB82F230}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AA631FAA-8E94-44D4-9C50-8CE0DB82F230}.Release|Any CPU.Build.0 = Release|Any CPU
-		{195CCE93-94D4-45DE-BD95-8085E6CB0D06}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{195CCE93-94D4-45DE-BD95-8085E6CB0D06}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{195CCE93-94D4-45DE-BD95-8085E6CB0D06}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{195CCE93-94D4-45DE-BD95-8085E6CB0D06}.Release|Any CPU.Build.0 = Release|Any CPU
 		{28026CAA-D5A1-4A44-91B3-6258BBEF4707}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{28026CAA-D5A1-4A44-91B3-6258BBEF4707}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{28026CAA-D5A1-4A44-91B3-6258BBEF4707}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -69,6 +65,10 @@ Global
 		{9DFA38A0-5EA0-4488-95E7-71AFDEC9BD3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9DFA38A0-5EA0-4488-95E7-71AFDEC9BD3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9DFA38A0-5EA0-4488-95E7-71AFDEC9BD3B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C3A0EC04-D5F2-48E9-8C35-5709C9419493}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3A0EC04-D5F2-48E9-8C35-5709C9419493}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3A0EC04-D5F2-48E9-8C35-5709C9419493}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3A0EC04-D5F2-48E9-8C35-5709C9419493}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

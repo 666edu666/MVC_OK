@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "insertaDepartamento";
+}
+
+<h2>insertar Departamento</h2>
+
+<h3>@ViewBag.Mensaje</h3>
+<form method="post">
+    <label>Numero de departamento</label>
+    <input type="number" name="deptNo" />
+    <br />
+    <label>Nombre de departamento</label>
+    <input type="text" name="deptNombre" />
+    <br />
+    <label>Localidad de departamento</label>
+    <input type="text" name="deptLocalidad" />
+    <br />
+    <button type="submit">INSERTAR</button>
+</form>

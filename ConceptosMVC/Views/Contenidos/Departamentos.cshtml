@@ -1,5 +1,5 @@
 ﻿@using ConceptosMVC.Models
-@model List<DEPT>
+@model List<Departamento>
 @{
     ViewBag.Title = "Departamentos";
 }
@@ -15,14 +15,15 @@
 
     List<SelectListItem> listItems = new List<SelectListItem>();
 
-    foreach (DEPT d in Model)
+    foreach (Departamento d in Model)
     {
         listItems.Add(new SelectListItem
         {
-            Text = d.DNOMBRE,
-            Value = (d.DEPT_NO.ToString())
+            Text = d.Nombre,
+            Value = (d.Numero.ToString())
         });
     }
     @Html.DropDownList("departamento", new SelectList(listItems, "Value", "Text"))
     <button type="submit">Buscar</button>
 }
+<h1>@ViewBag.Mensaje</h1>

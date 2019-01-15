@@ -1,0 +1,25 @@
+﻿@using Inyeccion.Models
+@model List<Producto>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Nombre</th>
+        <th>Imagen</th>
+        <th>Precio</th>
+    </tr>
+    @foreach (Producto p in Model)
+    {
+    <tr>
+        <td>@p.Nombre</td>
+        <td>
+            <img src="~/Images/@p.Imagen" style="width:150px; height:150px"/>
+        </td>
+        <td>@p.Precio €</td>
+    </tr>
+    }
+</table>

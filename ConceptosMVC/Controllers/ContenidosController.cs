@@ -74,28 +74,33 @@ namespace ConceptosMVC.Controllers
 
         public ActionResult Departamentos()
         {
+            
             return View(this.helper.GetDepartamentos());
         }
 
         [HttpPost]
-        public ActionResult Departamentos(String departamento)
+        public ActionResult Departamentos(int departamento)
         {
-            DEPT d =
-            this.helper.GetDepartamento(int.Parse(departamento));
-            //Aquí está validado correctamente
+            Departamento d =
+            this.helper.GetDepartamento(departamento);
+            Console.WriteLine("CODIGO DEL DEPT SELECCIONADO ===>"+d.Numero);
+
+            //Mando el objeto departamento al CONTROLADOR UpdateDepartamento
             return RedirectToAction("UpdateDepartamento", d);
         }
 
-        public ActionResult UpdateDepartamento(DEPT d)
+        public ActionResult UpdateDepartamento(Departamento d)
         {
+            ViewBag.Mensaje = d.Numero;
             return View(d);
         }
 
         [HttpPost]
-        public ActionResult UpdateDepartamento(DEPT d, String a)        {
-
+        public ActionResult UpdateDepartamento(Departamento d, String a){
+            ViewBag.Mensaje = d.Numero;
             if (ModelState.IsValid)
             {
+                this.helper.ModificarDepartamento(d.Numero,d.Nombre,d.Localidad);
                 ViewBag.Mensaje = "Se ha modificado correctamente.";
                 //Aquí está validado correctamente
                 return View( d);
@@ -103,9 +108,22 @@ namespace ConceptosMVC.Controllers
             else
             {
                 //Alguna validación es incorrecta
-                ViewBag.Mensaje = "No se ha podido modificar.";
+                ViewBag.Mensaje = "No se ha podido modificar porque los campos no cumplen los requisitos.";
                 return View(d);
             }
+        }
+
+        public ActionResult insertaDepartamento()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult insertaDepartamento(int deptNo, String deptNombre, String deptLocalidad)
+        {
+            this.helper.InsertarDepartamento(deptNo,deptNombre,deptLocalidad);
+            ViewBag.Mensaje = "Departamento insertado correctamente";
+            return View();
         }
     }
 }
