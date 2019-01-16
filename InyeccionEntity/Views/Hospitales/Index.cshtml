@@ -1,0 +1,27 @@
+﻿@using InyeccionEntity.Models
+@model List<Hospital>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Codigo Hospital</th>
+        <th>Nombre Hospital</th>
+        <th>Direccion Hospital</th>
+        <th>Telefono Hospital</th>
+        <th>Camas Hospital</th>
+    </tr>
+    @foreach (Hospital ho in Model)
+    {
+    <tr>
+        <td>@ho.IdHospital</td>
+        <td>@ho.Nombre</td>
+        <td>@ho.Direccion</td>
+        <td>@ho.Telefono</td>
+        <td>@ho.Camas</td>
+    </tr>
+    }
+</table>

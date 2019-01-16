@@ -1,0 +1,22 @@
+﻿@using PracticaDepartamentos.Models
+@model List <Departamento>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<table class="table table-bordered">
+    <tr>
+        <th>Codigo</th>
+        <th>Nombre</th>
+        <th>Localidad</th>
+    </tr>
+    @foreach (Departamento d in Model)
+    {
+    <tr>
+        <td>@d.DepartamentoCodigo</td>
+        <td>@d.DepartamentoNombre</td>
+        <td>@d.DepartamentoLocalidad</td>
+    </tr>
+    }
+</table>

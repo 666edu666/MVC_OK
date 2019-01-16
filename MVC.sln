@@ -23,6 +23,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConceptosMVC", "ConceptosMV
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inyeccion", "Inyeccion\Inyeccion.csproj", "{C3A0EC04-D5F2-48E9-8C35-5709C9419493}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InyeccionEntity", "InyeccionEntity\InyeccionEntity.csproj", "{D74020F5-5CFF-44F1-A11A-08AFED75E47E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PracticaDepartamentos", "PracticaDepartamentos\PracticaDepartamentos.csproj", "{44D553DC-F76A-43A2-B6BD-5E6CFFDE56A1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,6 +73,14 @@ Global
 		{C3A0EC04-D5F2-48E9-8C35-5709C9419493}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C3A0EC04-D5F2-48E9-8C35-5709C9419493}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C3A0EC04-D5F2-48E9-8C35-5709C9419493}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D74020F5-5CFF-44F1-A11A-08AFED75E47E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D74020F5-5CFF-44F1-A11A-08AFED75E47E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D74020F5-5CFF-44F1-A11A-08AFED75E47E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D74020F5-5CFF-44F1-A11A-08AFED75E47E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44D553DC-F76A-43A2-B6BD-5E6CFFDE56A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44D553DC-F76A-43A2-B6BD-5E6CFFDE56A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44D553DC-F76A-43A2-B6BD-5E6CFFDE56A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44D553DC-F76A-43A2-B6BD-5E6CFFDE56A1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
