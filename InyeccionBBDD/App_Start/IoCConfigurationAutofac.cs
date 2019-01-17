@@ -19,12 +19,26 @@ namespace InyeccionBBDD.App_Start
         }
         public static void RegistrarContextos(ContainerBuilder builder)
         {
+            //Para registrar sin interface
+            //builder.Register (z= new EntidaEmpeados()).InstancePerRequest)
+            builder.Register(z => new HOSPITALEntities1()).InstancePerRequest();
+            //builder.RegisterType<HOSPITALEntities1>().As<IHospitalEntities1>().InstancePerRequest();
+
+
+            //Para qe HospitalContext venga del SQL
             builder.RegisterType<HospitalContextSQL>().As<IHospitalContext>().InstancePerRequest();
+
+            //Para qe HospitalContext venga del MYSQL
+            //builder.RegisterType<HospitalContextMysql>().As<IHospitalContext>().InstancePerRequest();
+
+            //Para qe HospitalContext venga del ORACLE
+            //builder.RegisterType<HospitalContextOracle>().As<IHospitalContext>().InstancePerRequest();
 
         }
         public static void RegistrarRepos(ContainerBuilder builder)
         {
             builder.RegisterType<RepositoryDepartamentos>().As<IRepositoryDepartamentos>().InstancePerRequest();
+            builder.RegisterType<RepositoryEmpleados>().As<IRepositoryEmpleados>().InstancePerRequest();
         }
 
         public static void Configure()

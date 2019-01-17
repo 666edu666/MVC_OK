@@ -8,9 +8,7 @@ using System.Threading.Tasks;
 
 namespace RepositorioHospital.Contexts
 {
-
-    //Para crear una interface y tener polimorfismo
-    public  interface IHospitalContext
+    public interface IHospitalContext
     {
         DbSet<Departamento> Departamentos { get; set; }
     }

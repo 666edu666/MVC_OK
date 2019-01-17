@@ -1,4 +1,4 @@
-﻿@using RepositoriosHospital.Models
+﻿@using RepositorioHospital.Models
 @model List <Departamento>
 @{
     ViewBag.Title = "Index";
@@ -8,9 +8,17 @@
 
 <table class="table table-bordered">
     <tr>
-        <td></td>
+        <th>Departamento codigo</th>
+        <th>Departamento nombre</th>
+        <th>Departamento localidad</th>
     </tr>
-    @foreach(){
     
+    @foreach (Departamento d in Model)
+    {
+    <tr>
+        <td>@d.DepartamentoCodigo</td>
+        <td>@d.DepartamentoLocalidad</td>
+        <td>@d.DepartamentoNombre</td>
+    </tr>
     }
 </table>

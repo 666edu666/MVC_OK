@@ -15,6 +15,10 @@ namespace RepositorioHospital.Contexts
 
 
         public DbSet<Departamento> Departamentos { get; set; }
-        DbSet<Departamento> IHospitalContext.Departamentos { get ; set; }
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.HasDefaultSchema("SYSTEM");
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }

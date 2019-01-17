@@ -1,0 +1,30 @@
+﻿@using RepositorioHospital.Models
+@using RepositorioHospital.Contexts
+
+@model List <EMP>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>EMP NO</th>
+        <th>APELLIDO</th>
+        <th>OFICIO</th>
+        <th>DIR</th>
+        <th>SALARIO</th>
+    </tr>
+    @foreach (EMP e in Model)
+    {
+    <tr>
+        <td>@e.EMP_NO</td>
+        <td>@e.APELLIDO</td>
+        <td>@e.OFICIO</td>
+        <td>@e.DIR</td>
+        <td>@e.SALARIO</td>
+    </tr>
+    }
+</table>

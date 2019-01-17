@@ -10,9 +10,11 @@ namespace RepositorioHospital.Repositories
 {
     public class RepositoryDepartamentos : IRepositoryDepartamentos
     {
+
         IHospitalContext context;
 
         public RepositoryDepartamentos(IHospitalContext context) { this.context = context; }
+
         public List<Departamento> GetDepartamentos() {
             return this.context.Departamentos.ToList();
         }
