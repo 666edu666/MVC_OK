@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace RepositorioHospital.Repositories
 {
-    class RepositoryDepartamentos : IRepositoryDepartamentos
+    public class RepositoryDepartamentos : IRepositoryDepartamentos
     {
         IHospitalContext context;
 
