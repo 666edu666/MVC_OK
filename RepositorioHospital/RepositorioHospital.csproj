@@ -67,15 +67,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="Contexts\HospitalContextMysql.cs" />
+    <Compile Include="Contexts\HospitalContextOracle.cs" />
+    <Compile Include="Contexts\HospitalContextSQL.cs" />
+    <Compile Include="Contexts\IHospitalContext.cs" />
+    <Compile Include="Models\Departamento.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
