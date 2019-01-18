@@ -1,0 +1,47 @@
+﻿@using ConceptosMVC.Models
+@model List<Empleado>
+
+@{
+    ViewBag.Title = "MostrarEmpleadosComplejo";
+}
+
+<h2>Mostrar Empleados Complejo</h2>
+
+@if (Model != null)
+{
+    if (Session["EMPLEADOS"] != null)
+    {
+        <table class="table table-bordered">
+            <tr>
+                <th>ID</th>
+                <th>Apellido</th>
+                <th>Oficio</th>
+                <th>Salario</th>
+                <th>Accion</th>
+            </tr>
+            @foreach (Empleado e in Model)
+            {
+                <tr>
+                    <td>@e.IdEmpleado</td>
+                    <td>@e.Apellido</td>
+                    <td>@e.Oficio</td>
+                    <td>@e.Salario</td>
+                    <td>@Html.ActionLink("Eliminar", "MostrarEmpleadosComplejo", "Empleados", new { idEmp = e.IdEmpleado }, null);</td>
+                </tr>
+            }
+        </table>
+    }
+    else
+    {
+        <h2>No hay empleados almacenados</h2>
+    }
+
+}
+else
+{
+    <h2>No hay empleados almacenados</h2>
+    <h2>@ViewBag.Error</h2>
+}
+
+
+@Html.ActionLink("Volver al listado de empleados", "AlmacenarEmpleadosComplejo", "Empleados");

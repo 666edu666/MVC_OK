@@ -1,0 +1,29 @@
+﻿@using ConceptosMVC.Models
+@model List<Empleado>
+@{
+    ViewBag.Title = "AlmacenarSalarios";
+}
+
+<h2>AlmacenarSalarios</h2>
+
+<table class="table table-bordered" >
+    <tr>
+        <th>ID</th>
+        <th>Apellido</th>
+        <th>Oficio</th>
+        <th>Salario</th>
+        <th>Sumar al total</th>
+    </tr>
+    @foreach (Empleado e in Model)
+    {
+    <tr>
+        <td>@e.IdEmpleado</td>
+        <td>@e.Apellido</td>
+        <td>@e.Oficio</td>
+        <td>@e.Salario</td>
+        <td>@Html.ActionLink("SUMAR","AlmacenarSalarios","Empleados",new { salario=@e.Salario}, null)</td>
+    </tr>
+    }
+</table>
+
+@Html.ActionLink("Mostrar total","MostrarSalarios","Empleados");

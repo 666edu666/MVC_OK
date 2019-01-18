@@ -1,0 +1,65 @@
+﻿@using ConceptosMVC.Models
+@model List<Empleado>
+@{
+    ViewBag.Title = "AlmacenarEmpleadosComplejo";
+}
+
+<h2>Almacenar Empleados Complejo</h2>
+
+<h2>Almacenar Empleados</h2>
+<h3>@ViewBag.Empleados</h3>
+
+    <table class="table table-bordered">
+        <tr>
+            <th>ID</th>
+            <th>Apellido</th>
+            <th>Oficio</th>
+            <th>Salario</th>
+            <th>Sumar al total</th>
+        </tr>
+        @foreach (Empleado e in Model)
+        {
+        <tr>
+            <td>@e.IdEmpleado</td>
+            <td>@e.Apellido</td>
+            <td>@e.Oficio</td>
+            <td>@e.Salario</td>
+            @if (Session["EMPLEADOS"] != null)
+            {
+                Boolean check = false;
+                foreach (int cod in (List<int>)Session["EMPLEADOS"])
+                {
+
+                    if (cod == e.IdEmpleado)
+                    {
+                        check = true;
+
+                        break;
+                    }
+                    else
+                    {
+                        check = false;
+
+                    }
+                }
+                if (check == true)
+                {
+                    <td>
+                        <img src="~/Images/check.png" style="width:20px; height :auto" />
+                    </td>
+                }
+                else{
+                    <td>@Html.ActionLink("Almacenar", "AlmacenarEmpleadosComplejo", "Empleados", new { empno = e.IdEmpleado }, null)</td>
+                }
+            }
+            else
+            {
+                <td>@Html.ActionLink("Almacenar", "AlmacenarEmpleadosComplejo", "Empleados", new { empno = e.IdEmpleado }, null)</td>
+            }
+
+        </tr>
+        }
+    </table>
+
+
+@Html.ActionLink("Mostrar total", "MostrarEmpleadosComplejo", "Empleados")

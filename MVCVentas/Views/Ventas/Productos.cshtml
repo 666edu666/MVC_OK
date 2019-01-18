@@ -1,0 +1,34 @@
+﻿
+@{
+    ViewBag.Title = "Productos";
+}
+
+<h2>Productos</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div>
+        <input type="checkbox" name="producto" value="Producto 1 10€" />Producto 1
+    </div>
+    <div>
+        <input type="checkbox" name="producto" value="Producto 2 20€" />Producto 2
+    </div>
+    <div>
+        <input type="checkbox" name="producto" value="Producto 3 30€" />Producto 3
+    </div>
+    <div>
+        <input type="checkbox" name="producto" value="Producto 4 40€" />Producto 4
+    </div>
+    <div>
+        <input type="checkbox" name="producto" value="Producto 5 50€" />Producto 5
+    </div>
+
+    <div>
+        <label>Dirección de envío</label>
+        <input type="text" name="direccion" />
+    </div>
+    <div>
+        <button type="submit">Comprar productos</button>
+    </div>
+}

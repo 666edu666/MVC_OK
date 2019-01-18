@@ -13,7 +13,9 @@ namespace RepositorioHospital.Repositories
 
         IHospitalContext context;
 
-        public RepositoryDepartamentos(IHospitalContext context) { this.context = context; }
+        public RepositoryDepartamentos(IHospitalContext context) {
+            this.context = context;
+        }
 
         public List<Departamento> GetDepartamentos() {
             return this.context.Departamentos.ToList();

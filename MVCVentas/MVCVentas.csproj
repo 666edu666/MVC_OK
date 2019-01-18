@@ -8,12 +8,12 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{9DFA38A0-5EA0-4488-95E7-71AFDEC9BD3B}</ProjectGuid>
+    <ProjectGuid>{009ED8A1-2F32-4C6C-953A-FC8E491E0D0B}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ConceptosMVC</RootNamespace>
-    <AssemblyName>ConceptosMVC</AssemblyName>
+    <RootNamespace>MVCVentas</RootNamespace>
+    <AssemblyName>MVCVentas</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
@@ -44,15 +44,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -104,9 +96,6 @@
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Images\1.png" />
-    <Content Include="Images\2.png" />
-    <Content Include="Images\check.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
@@ -114,25 +103,16 @@
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Web.config" />
-    <Content Include="Views\Contenidos\ContenidoJavascript.cshtml" />
-    <Content Include="Views\Contenidos\Index.cshtml" />
-    <Content Include="Views\Contenidos\Departamentos.cshtml" />
-    <Content Include="Views\Contenidos\UpdateDepartamento.cshtml" />
+    <Content Include="Views\Ventas\Productos.cshtml" />
+    <Content Include="Views\Ventas\Pedidos.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\ContenidosController.cs" />
-    <Compile Include="Controllers\EmpleadosController.cs" />
+    <Compile Include="Controllers\VentasController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Departamento.cs" />
-    <Compile Include="Models\Empleado.cs" />
-    <Compile Include="Models\HelperDepartamento.cs" />
-    <Compile Include="Models\HospitalContext.cs" />
-    <Compile Include="Models\Personaje.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositories\RepositoryEmpleados.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
@@ -142,15 +122,8 @@
     <None Include="packages.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Contenidos\ContenidoContent.cshtml" />
+    <Content Include="Views\Ventas\Login.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
-    <Content Include="Views\Contenidos\insertaDepartamento.cshtml" />
-    <Content Include="Views\Empleados\AlmacenarSalarios.cshtml" />
-    <Content Include="Views\Empleados\MostrarSalarios.cshtml" />
-    <Content Include="Views\Empleados\AlmacenarEmpleados.cshtml" />
-    <Content Include="Views\Empleados\MostrarEmpleados.cshtml" />
-    <Content Include="Views\Empleados\AlmacenarEmpleadosComplejo.cshtml" />
-    <Content Include="Views\Empleados\MostrarEmpleadosComplejo.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -160,9 +133,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <Folder Include="Models\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -177,9 +148,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>59413</DevelopmentServerPort>
+          <DevelopmentServerPort>63742</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:59413/</IISUrl>
+          <IISUrl>http://localhost:63742/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
