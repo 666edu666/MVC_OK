@@ -33,6 +33,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InyeccionBBDD", "InyeccionB
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVCVentas", "MVCVentas\MVCVentas.csproj", "{009ED8A1-2F32-4C6C-953A-FC8E491E0D0B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeguridadAspnetDb", "SeguridadAspnetDb\SeguridadAspnetDb.csproj", "{333FFC8B-CB5A-46C4-876C-2F9B942BCA3A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeguridadUsuarios", "SeguridadUsuarios\SeguridadUsuarios.csproj", "{7C96D125-BA65-4860-8CF5-1EEAFA3C31BB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -99,6 +103,14 @@ Global
 		{009ED8A1-2F32-4C6C-953A-FC8E491E0D0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{009ED8A1-2F32-4C6C-953A-FC8E491E0D0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{009ED8A1-2F32-4C6C-953A-FC8E491E0D0B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{333FFC8B-CB5A-46C4-876C-2F9B942BCA3A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{333FFC8B-CB5A-46C4-876C-2F9B942BCA3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{333FFC8B-CB5A-46C4-876C-2F9B942BCA3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{333FFC8B-CB5A-46C4-876C-2F9B942BCA3A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C96D125-BA65-4860-8CF5-1EEAFA3C31BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C96D125-BA65-4860-8CF5-1EEAFA3C31BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C96D125-BA65-4860-8CF5-1EEAFA3C31BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C96D125-BA65-4860-8CF5-1EEAFA3C31BB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
