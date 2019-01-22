@@ -1,0 +1,30 @@
+﻿@using SeguridadEmpleados.Model
+@model List <Empleado>
+@{
+    ViewBag.Title = "Index";
+}
+
+@Html.ActionLink("Cerrar Sesion","CerrarSesion","Validacion")
+<h2>Zona de empleados subordinados</h2>
+
+<table>
+    <tr>
+        <td>Apellido</td>
+        <td>IdEmpleado</td>
+        @if (HttpContext.Current.User.IsInRole("PRESIDENTE"))
+        {
+            <td>ACCION</td>
+        }
+    </tr>
+    @foreach (Empleado e in Model)
+    {
+    <tr>
+        <td>@e.Apellido</td>
+        <td>@e.IdEmpleado</td>
+        @if (HttpContext.Current.User.IsInRole("PRESIDENTE"))
+        {
+            Html.ActionLink("Editar", "Empleados", new { idempleado = e.IdEmpleado }, null);
+        }
+    </tr>
+    }
+</table>

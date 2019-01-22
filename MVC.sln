@@ -37,6 +37,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeguridadAspnetDb", "Seguri
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeguridadUsuarios", "SeguridadUsuarios\SeguridadUsuarios.csproj", "{7C96D125-BA65-4860-8CF5-1EEAFA3C31BB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeguridadEmpleados", "SeguirdadEmpleados\SeguridadEmpleados.csproj", "{B8D1A500-5963-4029-BF7A-92E906352CBE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -111,6 +113,10 @@ Global
 		{7C96D125-BA65-4860-8CF5-1EEAFA3C31BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7C96D125-BA65-4860-8CF5-1EEAFA3C31BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7C96D125-BA65-4860-8CF5-1EEAFA3C31BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8D1A500-5963-4029-BF7A-92E906352CBE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8D1A500-5963-4029-BF7A-92E906352CBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8D1A500-5963-4029-BF7A-92E906352CBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8D1A500-5963-4029-BF7A-92E906352CBE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

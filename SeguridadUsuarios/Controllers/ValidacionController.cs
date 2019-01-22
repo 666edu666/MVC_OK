@@ -20,7 +20,6 @@ namespace SeguridadUsuarios.Controllers
         {
             return View();
         }
-
         [HttpPost]
         public ActionResult Login(String usuario, String password)
         {
