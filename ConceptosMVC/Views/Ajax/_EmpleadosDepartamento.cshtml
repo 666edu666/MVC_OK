@@ -1,0 +1,27 @@
+﻿@using ConceptosMVC.Models
+@model List<Empleado>
+@{
+    ViewBag.Title = "_EmpleadosDepartamento";
+}
+
+<h2>_Empleados Departamento</h2>
+@if (Model!=null) {
+<table class="table table-bordered">
+    <tr>
+        <th>Apellido</th>
+        <th>Oficio</th>
+        <th>Salario</th>
+    </tr>
+
+    @foreach (Empleado e in Model)
+    {
+        <tr>
+            <td>@e.Apellido</td>
+            <td>@e.Oficio</td>
+            <td>@e.Salario</td>
+        </tr>
+    }
+
+</table>}
+else {
+<h3>No hay empleados en el departamento</h3>}

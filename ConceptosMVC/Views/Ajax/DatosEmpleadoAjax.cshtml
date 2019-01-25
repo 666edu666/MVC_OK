@@ -1,0 +1,37 @@
+﻿@using ConceptosMVC.Models
+@model Empleado
+@{
+    ViewBag.Title = "DatosEmpleadoAjax";
+}
+<script>
+    $(document).ready(function () {
+        $("#botonBorrar").click(function () {
+            Swal.fire({
+                title: '¿Seguro que quieres borrar al empleado @Model.Apellido?',
+                text: "Esta acción es irreversible",
+                type: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Confirmar'
+            }).then((result) => {
+                if (result.value) {
+                    $("#algo").load("/Ajax/BorrarEmpleadoAjax?deptno="+@Model.IdEmpleado);
+                    Swal.fire(
+                        'Deleted!',
+                        'Your file has been deleted.',
+                        'success'
+                    )
+                    
+                }
+            })
+        });
+    });
+</script>
+<ul>
+    <li>@Model.Apellido</li>
+    <li>@Model.Salario</li>
+    <li>@Model.Oficio</li>
+</ul>
+<button type="button" id="botonBorrar" class="btn btn-danger">Borrar</button>
+<button type="button" id="algo"></button>

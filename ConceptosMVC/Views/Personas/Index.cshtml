@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+            $("#botonpersonas").click(function () {
+                $("#capapersonas").load("/Personas/DetallesPersona"); //Puedo cargar cualquier método, no solo los ActionResulta
+            });
+        });
+    </script>    
+}
+
+<h2>IndexPáginas con AJAX y JQUERY</h2>
+
+<button type="button" id="botonpersonas" class="btn btn-info">Mostrar Personas AJAX</button>
+<div id="capapersonas">
+
+</div>
+<br />
+@Html.ActionLink("Personas SIN AJAX","DetallesPersona","Personas")

@@ -1,0 +1,59 @@
+﻿@model IEnumerable<ConceptosMVC.Models.Departamento>
+
+@{
+    ViewBag.Title = "Index";
+}
+@section scripts{ 
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+}
+<h2>Index</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Numero)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Localidad)
+        </th>
+        <th>
+            
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Numero)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Localidad)
+        </td>
+        <td>
+            @*@Ajax.ActionLink("","",null)*@
+            @*@Html.ActionLink("Detalles sin AJAX", "_EmpleadosDepartamento", new { deptno = item.Numero })*@
+
+            @*Hace lo mismo que un link normal si no le añadimos la libreria de : unobtrusive. Esta libreria permite trabajar con AJAX desde MVC. Otra opcion es
+                usar directamente AJAX desde JQUERY, con $Ajax.LOAD*@
+            @Ajax.ActionLink("Detalles AJAX", "_EmpleadosDepartamento",
+           new { deptno = item.Numero }, 
+           new AjaxOptions { HttpMethod = "GET", UpdateTargetId = "capaempleados" },
+           new { @class = "btn btn-info" })
+        </td>
+    </tr>
+}
+   
+</table>
+<div>
+    <h2 class="text-center">Detalles del departamento</h2>
+    <div id="capaempleados">
+
+    </div>
+</div>

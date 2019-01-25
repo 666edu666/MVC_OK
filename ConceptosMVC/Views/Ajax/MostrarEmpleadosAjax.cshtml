@@ -1,0 +1,47 @@
+﻿<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+
+
+@section scripts{
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+   
+}
+
+
+
+@using ConceptosMVC.Models
+@model List<Empleado>
+@{
+    ViewBag.Title = "MostrarEmpleadosAjax";
+}
+
+<h2>Mostrar Empleados Ajax</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Empleado</th>
+        <th>Salario</th>
+        <th>Accion</th>
+    </tr>
+    @foreach (Empleado e in Model)
+    {
+        <tr>
+            <td>@e.Apellido</td>
+            <td>@e.Salario €</td>
+            <td>
+                @Ajax.ActionLink(
+                 "Información",
+                 "DatosEmpleadoAjax",
+                 new { deptno = e.IdEmpleado },
+                 new AjaxOptions { HttpMethod = "GET", UpdateTargetId = "capaempleados" }, //Es el id target
+                 new { @class = "btn btn-success" })
+                
+
+                @*@Html.ActionLink(" ", "EditResources", "NicheSites", new { deptno = e.IdEmpleado }, new { @class = "glyphicon glyphicon-edit" })*@
+            </td>
+        </tr>
+    }
+
+</table>
+<div id="capaempleados"></div>
