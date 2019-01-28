@@ -121,6 +121,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CifradoController.cs" />
     <Compile Include="Controllers\CorreoController.cs" />
     <Compile Include="Controllers\AjaxController.cs" />
     <Compile Include="Controllers\CachingController.cs" />
@@ -163,6 +164,9 @@
     <Content Include="Views\Ajax\Index.cshtml" />
     <Content Include="Views\Ajax\MostrarEmpleadosAjax.cshtml" />
     <Content Include="Views\Ajax\DatosEmpleadoAjax.cshtml" />
+    <Content Include="Views\Correo\Index.cshtml" />
+    <Content Include="Views\Cifrado\CrifrarTexto.cshtml" />
+    <Content Include="Views\Cifrado\CifradoSalt.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -172,7 +176,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Temportal\" />
+    <Folder Include="Temporal\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

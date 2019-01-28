@@ -36,12 +36,12 @@ namespace ConceptosMVC.Controllers
             return PartialView(this.repo.GetEmpleado(deptno));
         }
 
-        public PartialViewResult BorrarEmpleadoAjax(int deptno)
-        {
+        //public PartialViewResult BorrarEmpleadoAjax(int deptno)
+        //{
             
-            //Buscar los datos del Empleado que viene en el parametro
-            //return PartialView(this.repo.GetEmpleado(deptno));
-             return RedirectToAction("MostrarEmpleadosAjax");
-        }
+        //    //Buscar los datos del Empleado que viene en el parametro
+        //    //return PartialView(this.repo.GetEmpleado(deptno));
+        //     return RedirectToAction("MostrarEmpleadosAjax");
+        //}
     }
 }

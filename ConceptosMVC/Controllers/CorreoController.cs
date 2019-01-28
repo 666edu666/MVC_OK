@@ -13,7 +13,7 @@ namespace ConceptosMVC.Controllers
     public class CorreoController : Controller
     {
         Repositories.RepositoryHospital repo;
-        public AjaxController() { this.repo = new Repositories.RepositoryHospital(); }
+        public CorreoController() { this.repo = new Repositories.RepositoryHospital(); }
         // GET: Ajax
         public ActionResult Index()
         {
@@ -21,22 +21,35 @@ namespace ConceptosMVC.Controllers
         }
 
         [HttpPost]
-        public ActionResult Index(String destinatario, String asunto, String mensaje, String HttpPostedFile fichero)
+        public ActionResult Index(String destinatario, String asunto, String mensaje, 
+            HttpPostedFile fichero)
         {
+            //este es el propio mail
             MailMessage mail = new MailMessage();
             String cuenta = ConfigurationManager.AppSettings["correo"];
-            String pass = ConfigurationManager.AppSettings["password"];
-            mail.From = new MailAddress();
+            String password = ConfigurationManager.AppSettings["password"];
+            mail.From = new MailAddress(cuenta);
             mail.To.Add(destinatario);
-            mail.Subject=asunto;
+            mail.Subject = asunto;
             mail.Body = mensaje;
-
+            //necesitamos enviar adjuntos
+            //para ello vamos a subir los adjuntos a nuestro servidor
+            //necesitamos la ruta fisica de nuestro servidor
             String ruta = Server.MapPath("../Temporal");
-
-            fichero.SaveAs(ruta+"\\" + fichero.FileName);
+            //para guardarlo
+            
+            fichero.SaveAs(ruta + "\\" + fichero.FileName);
             Attachment adjunto = new Attachment(ruta + "\\" + fichero.FileName);
             mail.Attachments.Add(adjunto);
-            Smtp
+            //se crea el cliente que mandara el objeto y se configura
+            SmtpClient cliente = new SmtpClient();
+            cliente.Host = "smtp.gmail.com";
+            cliente.Port = 25;
+            cliente.EnableSsl = true;
+            cliente.UseDefaultCredentials = true;
+            cliente.Credentials = new NetworkCredential(cuenta, password);
+            cliente.Send(mail);
+            ViewBag.Mensaje = "Correo enviado";
 
             return View();
         }

@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "CrifrarTexto";
+}
+
+<h2>Crifrar Texto</h2>
+
+<form method="post">
+    <div>
+        <label>Texto a cifrar</label>
+        <input type="text" name="texto" class="form-control" />
+    </div>
+    <div>
+        <label>Resultado</label>
+        <textarea type="text" name="resultado" class="form-control">@ViewBag.Resultado</textarea>
+    </div>
+    <div>
+        <button type="submit" name="accion" value="CIFRAR" class="btn btn-danger">Cifrar</button>
+        <button type="submit" name="accion" value="comparar" class="btn btn-success">Comparar</button>
+    </div>
+</form>
+
+<h2>@ViewBag.Mensaje</h2>
