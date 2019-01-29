@@ -1,0 +1,38 @@
+﻿@model RutesConceptos.Models.Enfermo
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Enfermo</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Apellido)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Apellido)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Direccion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Direccion)
+        </dd>
+
+    </dl>
+
+    @*@using (Html.BeginForm("EliminarEnfermo")) {*@
+    <form method="post" action="@Url.Action("Enfermos", "EnfermosAux")">
+        <input type="text" name="inscripcion" class="form-control" value="@Model.Inscripcion" />
+        <button type="submit">BORRAR</button>
+    </form>
+
+</div>
