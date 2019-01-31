@@ -41,6 +41,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeguridadEmpleados", "Segui
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RutesConceptos", "RutesConceptos\RutesConceptos.csproj", "{318B81D6-64E0-4760-A711-62EB7B80DE5A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExcepcionesControl", "ExcepcionesControl\ExcepcionesControl.csproj", "{9C1D946D-C62F-4925-A781-E625CDBD55EE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -123,6 +125,10 @@ Global
 		{318B81D6-64E0-4760-A711-62EB7B80DE5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{318B81D6-64E0-4760-A711-62EB7B80DE5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{318B81D6-64E0-4760-A711-62EB7B80DE5A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C1D946D-C62F-4925-A781-E625CDBD55EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C1D946D-C62F-4925-A781-E625CDBD55EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C1D946D-C62F-4925-A781-E625CDBD55EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C1D946D-C62F-4925-A781-E625CDBD55EE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
